@@ -6,7 +6,7 @@ updated: 2026-10-12T22:04:00+05:30
 
 # Roadmap — Tile World Vijayawada
 
-> **Current Phase:** Phase 3 — Architectural Surface Switcher (Room Previewer)
+> **Current Phase:** Phase 4 — Quality Assurance & Testing Suite
 > **Status:** planning
 
 ## Must-Haves (from SPEC.md)
@@ -14,7 +14,7 @@ updated: 2026-10-12T22:04:00+05:30
 - [x] REQ-01: Interactive Tile Coverage & Box Estimator Calculator
 - [x] REQ-02: Instant Tile Search & Dimension/Finish Filtering
 - [x] REQ-03: Direct Transfer of Calculated Estimates to WhatsApp Inquiry
-- [ ] REQ-04: Surface Comparison / Room Preview Tool
+- [x] REQ-04: Surface Comparison / Room Preview Tool
 - [ ] REQ-05: Unit Verification Tests for Estimator Math & Form Validation
 
 ---
@@ -45,14 +45,14 @@ updated: 2026-10-12T22:04:00+05:30
 ---
 
 ### Phase 3: Architectural Surface Switcher (Room Previewer)
-**Status:** ⬜ Not Started
+**Status:** ✅ Complete
 **Objective:** Create an interactive 2D architectural room canvas allowing visitors to switch between Statuario Gold, Urban Grey, Natural Oak, and Kitkat Mosaic to visualize contrasting floor and wall surfaces.
 **Depends on:** Phase 2
 **Requirements:** REQ-04
 
 **Plans:**
-- [ ] Plan 3.1: Build `RoomSurfacePreviewer.tsx` with interactive surface swatches.
-- [ ] Plan 3.2: Connect swatch selections to product specification modals.
+- [x] Plan 3.1: Build `RoomSurfacePreviewer.tsx` with interactive surface swatches.
+- [x] Plan 3.2: Connect swatch selections to product specification modals.
 
 ---
 
