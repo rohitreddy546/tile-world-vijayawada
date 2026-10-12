@@ -6,8 +6,8 @@ updated: 2026-10-12T22:04:00+05:30
 
 # Roadmap — Tile World Vijayawada
 
-> **Current Phase:** Phase 4 — Quality Assurance & Testing Suite
-> **Status:** planning
+> **Current Phase:** Complete (Milestone v1.1-Interactive-Showroom-Suite)
+> **Status:** verified
 
 ## Must-Haves (from SPEC.md)
 
@@ -15,7 +15,7 @@ updated: 2026-10-12T22:04:00+05:30
 - [x] REQ-02: Instant Tile Search & Dimension/Finish Filtering
 - [x] REQ-03: Direct Transfer of Calculated Estimates to WhatsApp Inquiry
 - [x] REQ-04: Surface Comparison / Room Preview Tool
-- [ ] REQ-05: Unit Verification Tests for Estimator Math & Form Validation
+- [x] REQ-05: Unit Verification Tests for Estimator Math & Form Validation
 
 ---
 
@@ -57,11 +57,12 @@ updated: 2026-10-12T22:04:00+05:30
 ---
 
 ### Phase 4: Quality Assurance & Testing Suite
-**Status:** ⬜ Not Started
+**Status:** ✅ Complete
 **Objective:** Add automated tests for calculation formulas, input sanitization, form validation, and keyboard accessibility.
 **Depends on:** Phase 3
 **Requirements:** REQ-05
 
 **Plans:**
-- [ ] Plan 4.1: Setup test suite and write estimator calculation tests.
-- [ ] Plan 4.2: Audit accessibility, contrast, and perform final production build validation.
+- [x] Plan 4.1: Setup test suite and write estimator calculation tests.
+- [x] Plan 4.2: Audit accessibility, contrast, and perform final production build validation.
+
