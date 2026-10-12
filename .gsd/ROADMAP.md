@@ -6,14 +6,14 @@ updated: 2026-10-12T22:04:00+05:30
 
 # Roadmap — Tile World Vijayawada
 
-> **Current Phase:** Phase 1 — Interactive Tile Estimator & Coverage Calculator
+> **Current Phase:** Phase 2 — Multi-Dimensional Collections Filter & Instant Search
 > **Status:** planning
 
 ## Must-Haves (from SPEC.md)
 
-- [ ] REQ-01: Interactive Tile Coverage & Box Estimator Calculator
+- [x] REQ-01: Interactive Tile Coverage & Box Estimator Calculator
 - [ ] REQ-02: Instant Tile Search & Dimension/Finish Filtering
-- [ ] REQ-03: Direct Transfer of Calculated Estimates to WhatsApp Inquiry
+- [x] REQ-03: Direct Transfer of Calculated Estimates to WhatsApp Inquiry
 - [ ] REQ-04: Surface Comparison / Room Preview Tool
 - [ ] REQ-05: Unit Verification Tests for Estimator Math & Form Validation
 
@@ -22,13 +22,13 @@ updated: 2026-10-12T22:04:00+05:30
 ## Phases
 
 ### Phase 1: Tile Coverage & Box Estimator Tool
-**Status:** 🔄 In Planning (Next for Execution)
+**Status:** ✅ Complete
 **Objective:** Deliver an interactive room tile calculator that takes room dimensions (length & width), selects tile format (e.g. 600x1200mm, 300x600mm), calculates total area, box requirements, and 10% wastage buffer, with a direct WhatsApp quote button.
 **Requirements:** REQ-01, REQ-03
 
 **Plans:**
-- [ ] Plan 1.1: Build `TileEstimatorCalculator.tsx` component with mathematical coverage models and unit toggle (Feet / Meters).
-- [ ] Plan 1.2: Integrate calculator into `App.tsx` and connect quote output to `EnquiryModal.tsx` and WhatsApp dispatch.
+- [x] Plan 1.1: Build `TileEstimatorCalculator.tsx` component with mathematical coverage models and unit toggle (Feet / Meters).
+- [x] Plan 1.2: Integrate calculator into `App.tsx` and connect quote output to `EnquiryModal.tsx` and WhatsApp dispatch.
 
 ---
 
