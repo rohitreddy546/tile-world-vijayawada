@@ -440,6 +440,59 @@ button {
   }
 }
 
+/* Motion Graphics Shimmer Text */
+.tw-shimmer-text {
+  background: linear-gradient(
+    110deg,
+    #3B82F6 0%,
+    #60A5FA 30%,
+    #FFFFFF 50%,
+    #93C5FD 70%,
+    #2563EB 100%
+  );
+  background-size: 240% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: twShimmerText 7s linear infinite;
+  display: inline;
+}
+
+@keyframes twShimmerText {
+  0% {
+    background-position: 240% center;
+  }
+  100% {
+    background-position: -240% center;
+  }
+}
+
+/* Motion Graphics Glassmorphic Glow Card */
+.tw-motion-card-glow {
+  position: relative;
+}
+
+.tw-motion-card-glow::before {
+  content: '';
+  position: absolute;
+  inset: -1.5px;
+  border-radius: calc(var(--radius-md) + 1.5px);
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.55) 0%,
+    rgba(255, 255, 255, 0.1) 35%,
+    rgba(37, 99, 235, 0.4) 70%,
+    rgba(96, 165, 250, 0.6) 100%
+  );
+  z-index: 0;
+  opacity: 0.85;
+  transition: opacity var(--transition-normal);
+  pointer-events: none;
+}
+
+.tw-motion-card-glow:hover::before {
+  opacity: 1;
+}
+
 /* Scroll Reveal Classes */
 .tw-reveal {
   opacity: 0;

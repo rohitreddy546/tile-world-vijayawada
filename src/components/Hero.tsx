@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowDown, MapPin, Sparkles, Play } from 'lucide-react';
+import { HeroMotionCanvas } from './HeroMotionCanvas';
 
 interface HeroProps {
   onOpenEnquiry: () => void;
@@ -20,6 +21,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenEnquiry }) => {
       }}
       aria-label="Welcome to Tile World Vijayawada"
     >
+      {/* GPU-Accelerated Architectural Motion Graphics Background Animation */}
+      <HeroMotionCanvas />
+
       <div className="tw-container" style={{ position: 'relative', zIndex: 2 }}>
         <div
           style={{
@@ -32,9 +36,33 @@ export const Hero: React.FC<HeroProps> = ({ onOpenEnquiry }) => {
         >
           {/* Left Column: Editorial Headline & Actions */}
           <div style={{ maxWidth: '640px' }} className="tw-reveal is-visible">
-            <div className="tw-eyebrow" style={{ marginBottom: '1.25rem' }}>
-              <span className="tw-eyebrow-dot" style={{ animation: 'twBeaconPulse 2s infinite' }}></span>
-              <span>Architectural Surfaces &bull; Complete Bathware</span>
+            {/* Motion Graphics HUD Telemetry Eyebrow */}
+            <div
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.625rem',
+                padding: '0.35rem 0.85rem',
+                backgroundColor: 'rgba(59, 130, 246, 0.08)',
+                border: '1px solid rgba(59, 130, 246, 0.25)',
+                borderRadius: 'var(--radius-pill)',
+                marginBottom: '1.25rem',
+                fontFamily: 'monospace',
+                fontSize: '0.6875rem',
+                color: 'var(--color-blue-vibrant)',
+                letterSpacing: '0.08em'
+              }}
+            >
+              <span
+                style={{
+                  width: '6px',
+                  height: '6px',
+                  borderRadius: '50%',
+                  backgroundColor: 'var(--color-blue)',
+                  animation: 'twBeaconPulse 1.8s infinite'
+                }}
+              />
+              <span>SURFACES MATRIX &bull; VIJAYAWADA &bull; EST. 2004</span>
             </div>
 
             <h1
@@ -49,7 +77,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenEnquiry }) => {
               }}
             >
               Transform Spaces. <br />
-              <span style={{ fontStyle: 'italic', fontWeight: 400, color: 'var(--color-blue)' }}>
+              <span className="tw-shimmer-text" style={{ fontStyle: 'italic', fontWeight: 400 }}>
                 Elevate Living.
               </span>
             </h1>
@@ -214,7 +242,29 @@ export const Hero: React.FC<HeroProps> = ({ onOpenEnquiry }) => {
                 backgroundColor: 'var(--color-surface-subtle)',
                 aspectRatio: '4 / 3.4'
               }}
+              className="tw-motion-card-glow"
             >
+              {/* Motion Graphics Telemetry Stamp */}
+              <div
+                style={{
+                  position: 'absolute',
+                  top: '1rem',
+                  left: '1rem',
+                  backgroundColor: 'rgba(7, 10, 18, 0.85)',
+                  backdropFilter: 'blur(8px)',
+                  padding: '0.3rem 0.65rem',
+                  borderRadius: 'var(--radius-xs)',
+                  border: '1px solid rgba(255, 255, 255, 0.14)',
+                  fontFamily: 'monospace',
+                  fontSize: '0.6875rem',
+                  color: '#E2E8F0',
+                  letterSpacing: '0.04em',
+                  zIndex: 3
+                }}
+              >
+                SPEC 600&times;1200MM // RECTIFIED // 98 GU
+              </div>
+
               <img
                 src="/images/hero-living-room.jpg"
                 alt="Contemporary architectural living space with premium vitrified flooring and warm natural lighting"
