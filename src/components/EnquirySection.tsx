@@ -13,7 +13,7 @@ export const EnquirySection: React.FC<EnquirySectionProps> = ({ onOpenEnquiry })
         <div
           style={{
             backgroundColor: 'var(--color-dark-bg)',
-            color: 'var(--color-text-inverse)',
+            color: '#FFFFFF',
             borderRadius: 'var(--radius-md)',
             padding: 'clamp(2.5rem, 6vw, 4.5rem) clamp(1.75rem, 5vw, 4rem)',
             position: 'relative',

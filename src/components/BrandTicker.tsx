@@ -80,7 +80,7 @@ export const BrandTicker: React.FC = () => {
                   width: 'auto',
                   maxWidth: '90px',
                   objectFit: 'contain',
-                  filter: 'grayscale(100%) opacity(0.85)',
+                  filter: 'var(--brand-logo-filter)',
                   transition: 'filter var(--transition-fast)'
                 }}
                 className="tw-brand-logo-img"
@@ -108,7 +108,8 @@ export const BrandTicker: React.FC = () => {
           box-shadow: var(--shadow-md);
         }
         .tw-brand-pill:hover .tw-brand-logo-img {
-          filter: grayscale(0%) opacity(1);
+          filter: none !important;
+          opacity: 1 !important;
         }
         .tw-ticker-track:hover {
           animation-play-state: paused;

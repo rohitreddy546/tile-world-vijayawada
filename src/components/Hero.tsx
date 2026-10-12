@@ -222,7 +222,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenEnquiry }) => {
                 style={{
                   position: 'absolute',
                   inset: 0,
-                  background: 'linear-gradient(to top, rgba(20, 19, 18, 0.5) 0%, rgba(20, 19, 18, 0) 50%)'
+                  background: 'linear-gradient(to top, rgba(7, 10, 18, 0.7) 0%, rgba(7, 10, 18, 0) 50%)'
                 }}
               />
               {/* Subtle architectural caption */}

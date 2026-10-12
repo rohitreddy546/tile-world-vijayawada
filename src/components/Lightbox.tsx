@@ -49,7 +49,7 @@ export const Lightbox: React.FC<LightboxProps> = ({
         position: 'fixed',
         inset: 0,
         zIndex: 'var(--z-lightbox)',
-        backgroundColor: 'rgba(14, 13, 12, 0.95)',
+        backgroundColor: 'rgba(7, 10, 18, 0.96)',
         backdropFilter: 'blur(16px)',
         display: 'flex',
         flexDirection: 'column',

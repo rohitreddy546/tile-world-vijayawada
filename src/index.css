@@ -1,35 +1,36 @@
 /* ==========================================================================
    TILE WORLD VIJAYAWADA — ARCHITECTURAL DESIGN SYSTEM & STYLESHEET
-   Curated palette: Royal Cobalt Blue, Gallery White, Obsidian Midnight Black
+   Curated palette: Obsidian Midnight Black, Royal Sapphire Blue, Crisp White
    ========================================================================== */
 
-:root {
-  /* Architectural Color Tokens */
-  --color-bg: #FFFFFF;              /* Pure Gallery White */
-  --color-surface: #FFFFFF;         /* Crisp White Tile Surface */
-  --color-surface-subtle: #F8FAFC;  /* Porcelain Slate Elevation */
-  --color-surface-sunken: #F1F5F9;  /* Cool Architectural Chalk */
+:root,
+[data-theme="dark"] {
+  /* Architectural Color Tokens: Obsidian Midnight Luxury (Dark by Default) */
+  --color-bg: #070A12;              /* Obsidian Midnight Black Background */
+  --color-surface: #0F172A;         /* Slate-900 Basalt Surface Elevation */
+  --color-surface-subtle: #131D2F;  /* Midnight Slate Azure Elevation */
+  --color-surface-sunken: #04060B;  /* Deepest Basalt Ink */
   
-  --color-text-main: #0A0F1D;       /* Obsidian Slate Black */
-  --color-text-muted: #475569;      /* Architectural Cool Slate Text */
-  --color-text-subtle: #94A3B8;     /* Refined Metadata Slate */
-  --color-text-inverse: #FFFFFF;    /* Pure White Text on Dark Surfaces */
+  --color-text-main: #F8FAFC;       /* Crisp Gallery White Text */
+  --color-text-muted: #94A3B8;      /* Architectural Cool Slate Text */
+  --color-text-subtle: #64748B;     /* Refined Metadata Slate */
+  --color-text-inverse: #070A12;    /* Dark Text on Light Interactive Buttons */
 
-  --color-dark-bg: #080C16;         /* Obsidian Midnight Black */
-  --color-dark-surface: #111827;    /* Slate-tinted Basalt Surface Elevation */
+  --color-dark-bg: #04060B;         /* Deepest Architectural Inky Obsidian */
+  --color-dark-surface: #0B1120;    /* Dark Basalt Surface Elevation */
   --color-dark-border: rgba(255, 255, 255, 0.12);
 
-  --color-border: #E2E8F0;          /* Crisp Architectural Border */
-  --color-border-subtle: #F1F5F9;   /* Light Divider */
-  --color-border-active: #0A0F1D;   /* High-Contrast Interactive Border */
+  --color-border: rgba(255, 255, 255, 0.12);        /* Crisp High-End Architectural Grid */
+  --color-border-subtle: rgba(255, 255, 255, 0.08); /* Light Divider */
+  --color-border-active: #3B82F6;                   /* High-Contrast Interactive Blue Border */
 
   /* Architectural Royal Sapphire & Mediterranean Cobalt Accents */
-  --color-blue: #1D4ED8;            /* Royal Cobalt Blue */
-  --color-blue-vibrant: #2563EB;    /* Electric Sapphire Blue */
-  --color-blue-light: #EFF6FF;      /* Soft Ice Azure Background */
-  --color-blue-subtle: #DBEAFE;     /* Azure Border Tint */
-  --color-blue-dark: #1E3A8A;       /* Deep Mediterranean Navy */
-  --color-blue-glow: rgba(37, 99, 235, 0.20);
+  --color-blue: #3B82F6;            /* Luminous Sapphire Cobalt Blue */
+  --color-blue-vibrant: #60A5FA;    /* Bright Azure Accent */
+  --color-blue-light: rgba(59, 130, 246, 0.16); /* Soft Ice Azure Background */
+  --color-blue-subtle: rgba(59, 130, 246, 0.32);/* Azure Border Tint */
+  --color-blue-dark: #2563EB;       /* Deep Mediterranean Navy */
+  --color-blue-glow: rgba(59, 130, 246, 0.30);
 
   /* Primary Accent & Backwards-Compatibility Aliases */
   --color-accent: var(--color-blue);
@@ -45,6 +46,13 @@
   /* Functional Accents */
   --color-whatsapp: #25D366;
   --color-whatsapp-dark: #1EBE5D;
+
+  /* Header & Floating Element Tokens */
+  --color-header-bg: rgba(7, 10, 18, 0.90);
+  --brand-logo-filter: brightness(0) invert(1) opacity(0.88);
+  --color-btn-primary-bg: #F8FAFC;
+  --color-btn-primary-text: #070A12;
+  --color-btn-primary-hover-bg: #E2E8F0;
 
   /* Typography */
   --font-serif: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
@@ -63,10 +71,10 @@
   --radius-pill: 9999px;
 
   /* Subtle Architectural Elevation */
-  --shadow-sm: 0 2px 8px rgba(10, 15, 29, 0.04);
-  --shadow-md: 0 8px 24px rgba(10, 15, 29, 0.06);
-  --shadow-lg: 0 16px 40px rgba(10, 15, 29, 0.08);
-  --shadow-xl: 0 24px 60px rgba(10, 15, 29, 0.12);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.45);
+  --shadow-xl: 0 24px 60px rgba(0, 0, 0, 0.60);
 
   /* Easing & Motion */
   --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
@@ -81,6 +89,44 @@
   --z-modal: 300;
   --z-lightbox: 400;
   --z-toast: 500;
+}
+
+[data-theme="light"] {
+  --color-bg: #FFFFFF;              /* Pure Gallery White */
+  --color-surface: #FFFFFF;         /* Crisp White Tile Surface */
+  --color-surface-subtle: #F8FAFC;  /* Porcelain Slate Elevation */
+  --color-surface-sunken: #F1F5F9;  /* Cool Architectural Chalk */
+  
+  --color-text-main: #0A0F1D;       /* Obsidian Slate Black */
+  --color-text-muted: #475569;      /* Architectural Cool Slate Text */
+  --color-text-subtle: #94A3B8;     /* Refined Metadata Slate */
+  --color-text-inverse: #FFFFFF;    /* Pure White Text on Dark Surfaces */
+
+  --color-dark-bg: #070A12;         /* Obsidian Midnight Black */
+  --color-dark-surface: #0F172A;    /* Slate-tinted Basalt Surface Elevation */
+  --color-dark-border: rgba(255, 255, 255, 0.12);
+
+  --color-border: #E2E8F0;          /* Crisp Architectural Border */
+  --color-border-subtle: #F1F5F9;   /* Light Divider */
+  --color-border-active: #0A0F1D;   /* High-Contrast Interactive Border */
+
+  --color-blue: #1D4ED8;            /* Royal Cobalt Blue */
+  --color-blue-vibrant: #2563EB;    /* Electric Sapphire Blue */
+  --color-blue-light: #EFF6FF;      /* Soft Ice Azure Background */
+  --color-blue-subtle: #DBEAFE;     /* Azure Border Tint */
+  --color-blue-dark: #1E3A8A;       /* Deep Mediterranean Navy */
+  --color-blue-glow: rgba(37, 99, 235, 0.20);
+
+  --color-header-bg: rgba(255, 255, 255, 0.94);
+  --brand-logo-filter: grayscale(100%) opacity(0.85);
+  --color-btn-primary-bg: #070A12;
+  --color-btn-primary-text: #FFFFFF;
+  --color-btn-primary-hover-bg: #1E293B;
+
+  --shadow-sm: 0 2px 8px rgba(10, 15, 29, 0.04);
+  --shadow-md: 0 8px 24px rgba(10, 15, 29, 0.06);
+  --shadow-lg: 0 16px 40px rgba(10, 15, 29, 0.08);
+  --shadow-xl: 0 24px 60px rgba(10, 15, 29, 0.12);
 }
 
 /* Base Reset */
@@ -98,12 +144,15 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
+  transition: background-color 240ms ease, color 240ms ease;
 }
 
 body {
   overflow-x: clip;
   line-height: 1.6;
   background-color: var(--color-bg);
+  color: var(--color-text-main);
+  transition: background-color 240ms ease, color 240ms ease;
 }
 
 img, video {
@@ -202,26 +251,26 @@ button {
 }
 
 .tw-btn-primary {
-  background-color: var(--color-dark-bg);
-  color: var(--color-text-inverse);
-  border: 1px solid var(--color-dark-bg);
+  background-color: var(--color-btn-primary-bg);
+  color: var(--color-btn-primary-text);
+  border: 1px solid var(--color-btn-primary-bg);
 }
 
 .tw-btn-primary:hover {
-  background-color: #1E293B;
-  border-color: #1E293B;
+  background-color: var(--color-btn-primary-hover-bg);
+  border-color: var(--color-btn-primary-hover-bg);
   transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(8, 12, 22, 0.22);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
 }
 
 .tw-btn-secondary {
   background-color: transparent;
   color: var(--color-text-main);
-  border: 1px solid var(--color-border-active);
+  border: 1px solid var(--color-border);
 }
 
 .tw-btn-secondary:hover {
-  background-color: var(--color-surface-subtle);
+  background-color: var(--color-blue-light);
   border-color: var(--color-blue);
   color: var(--color-blue);
   transform: translateY(-1px);

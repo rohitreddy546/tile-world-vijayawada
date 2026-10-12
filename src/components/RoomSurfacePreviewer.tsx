@@ -439,7 +439,7 @@ export const RoomSurfacePreviewer: React.FC<RoomSurfacePreviewerProps> = ({ onOp
                       left: '1rem',
                       right: '1rem',
                       padding: '0.75rem',
-                      backgroundColor: 'rgba(20, 19, 18, 0.88)',
+                      backgroundColor: 'rgba(7, 10, 18, 0.90)',
                       backdropFilter: 'blur(8px)',
                       borderRadius: 'var(--radius-xs)',
                       color: '#FFFFFF'
@@ -475,7 +475,7 @@ export const RoomSurfacePreviewer: React.FC<RoomSurfacePreviewerProps> = ({ onOp
                     gap: '0.5rem',
                     padding: '0.45rem 0.85rem',
                     borderRadius: 'var(--radius-pill)',
-                    backgroundColor: activeZone === 'floor' ? 'var(--color-bronze)' : 'rgba(20, 19, 18, 0.85)',
+                    backgroundColor: activeZone === 'floor' ? 'var(--color-bronze)' : 'rgba(7, 10, 18, 0.88)',
                     color: '#FFFFFF',
                     border: activeZone === 'floor' ? '2px solid #FFFFFF' : '1px solid rgba(255, 255, 255, 0.25)',
                     boxShadow: '0 8px 24px rgba(0, 0, 0, 0.45)',
@@ -520,7 +520,7 @@ export const RoomSurfacePreviewer: React.FC<RoomSurfacePreviewerProps> = ({ onOp
                     gap: '0.5rem',
                     padding: '0.45rem 0.85rem',
                     borderRadius: 'var(--radius-pill)',
-                    backgroundColor: activeZone === 'wall' ? 'var(--color-bronze)' : 'rgba(20, 19, 18, 0.85)',
+                    backgroundColor: activeZone === 'wall' ? 'var(--color-bronze)' : 'rgba(7, 10, 18, 0.88)',
                     color: '#FFFFFF',
                     border: activeZone === 'wall' ? '2px solid #FFFFFF' : '1px solid rgba(255, 255, 255, 0.25)',
                     boxShadow: '0 8px 24px rgba(0, 0, 0, 0.45)',
@@ -561,7 +561,7 @@ export const RoomSurfacePreviewer: React.FC<RoomSurfacePreviewerProps> = ({ onOp
                   style={{
                     padding: '0.4rem 0.875rem',
                     borderRadius: 'var(--radius-xs)',
-                    backgroundColor: 'rgba(20, 19, 18, 0.82)',
+                    backgroundColor: 'rgba(7, 10, 18, 0.88)',
                     backdropFilter: 'blur(8px)',
                     border: '1px solid rgba(255, 255, 255, 0.12)',
                     fontSize: '0.75rem'
@@ -574,7 +574,7 @@ export const RoomSurfacePreviewer: React.FC<RoomSurfacePreviewerProps> = ({ onOp
                   style={{
                     padding: '0.4rem 0.875rem',
                     borderRadius: 'var(--radius-xs)',
-                    backgroundColor: 'rgba(20, 19, 18, 0.82)',
+                    backgroundColor: 'rgba(7, 10, 18, 0.88)',
                     backdropFilter: 'blur(8px)',
                     border: '1px solid rgba(255, 255, 255, 0.12)',
                     fontSize: '0.75rem'

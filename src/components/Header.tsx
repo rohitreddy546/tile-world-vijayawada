@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight, Phone, MessageSquare } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Phone, MessageSquare, Sun, Moon } from 'lucide-react';
 import { BUSINESS_INFO } from '../data/showroomData';
 
 interface HeaderProps {
@@ -9,6 +9,22 @@ interface HeaderProps {
 export const Header: React.FC<HeaderProps> = ({ onOpenEnquiry }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [theme, setTheme] = useState<'dark' | 'light'>(() => {
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('tw-theme') as 'dark' | 'light' | null;
+      if (saved === 'dark' || saved === 'light') return saved;
+    }
+    return 'dark';
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('tw-theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -62,10 +78,10 @@ export const Header: React.FC<HeaderProps> = ({ onOpenEnquiry }) => {
           position: 'sticky',
           top: 0,
           zIndex: 'var(--z-header)',
-          backgroundColor: isScrolled ? 'rgba(255, 255, 255, 0.96)' : 'var(--color-bg)',
-          backdropFilter: isScrolled ? 'blur(12px)' : 'none',
+          backgroundColor: isScrolled ? 'var(--color-header-bg)' : 'var(--color-bg)',
+          backdropFilter: isScrolled ? 'blur(16px)' : 'none',
           borderBottom: isScrolled ? '1px solid var(--color-border)' : '1px solid transparent',
-          boxShadow: isScrolled ? '0 4px 20px rgba(10, 15, 29, 0.05)' : 'none',
+          boxShadow: isScrolled ? 'var(--shadow-md)' : 'none',
           transition: 'all 240ms ease'
         }}
       >
@@ -178,6 +194,29 @@ export const Header: React.FC<HeaderProps> = ({ onOpenEnquiry }) => {
               <span>WhatsApp</span>
             </a>
 
+            {/* Theme Switcher Toggle Button */}
+            <button
+              onClick={toggleTheme}
+              className="tw-theme-toggle"
+              aria-label={theme === 'dark' ? 'Switch to Gallery Light Mode' : 'Switch to Obsidian Dark Mode'}
+              title={theme === 'dark' ? 'Switch to Gallery Light Mode' : 'Switch to Obsidian Dark Mode'}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: '38px',
+                height: '38px',
+                borderRadius: 'var(--radius-xs)',
+                border: '1px solid var(--color-border)',
+                backgroundColor: 'var(--color-surface)',
+                color: 'var(--color-text-main)',
+                cursor: 'pointer',
+                transition: 'all var(--transition-fast)'
+              }}
+            >
+              {theme === 'dark' ? <Sun size={17} color="#60A5FA" /> : <Moon size={17} color="#1D4ED8" />}
+            </button>
+
             <button
               onClick={() => onOpenEnquiry()}
               className="tw-btn tw-btn-primary"
@@ -272,16 +311,36 @@ export const Header: React.FC<HeaderProps> = ({ onOpenEnquiry }) => {
                   Vijayawada Showroom
                 </span>
               </div>
-              <button
-                onClick={() => setMobileMenuOpen(false)}
-                style={{
-                  padding: '0.5rem',
-                  color: 'var(--color-text-main)'
-                }}
-                aria-label="Close menu"
-              >
-                <X size={22} />
-              </button>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <button
+                  onClick={toggleTheme}
+                  style={{
+                    padding: '0.45rem',
+                    borderRadius: 'var(--radius-xs)',
+                    border: '1px solid var(--color-border)',
+                    backgroundColor: 'var(--color-surface)',
+                    color: 'var(--color-text-main)',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    cursor: 'pointer'
+                  }}
+                  aria-label={theme === 'dark' ? 'Switch to Gallery Light Mode' : 'Switch to Obsidian Dark Mode'}
+                  title={theme === 'dark' ? 'Switch to Gallery Light Mode' : 'Switch to Obsidian Dark Mode'}
+                >
+                  {theme === 'dark' ? <Sun size={18} color="#60A5FA" /> : <Moon size={18} color="#1D4ED8" />}
+                </button>
+                <button
+                  onClick={() => setMobileMenuOpen(false)}
+                  style={{
+                    padding: '0.5rem',
+                    color: 'var(--color-text-main)'
+                  }}
+                  aria-label="Close menu"
+                >
+                  <X size={22} />
+                </button>
+              </div>
             </div>
 
             {/* Mobile Nav Links */}

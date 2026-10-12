@@ -9,7 +9,19 @@
       name="description"
       content="Serving Vijayawada since 2004. Premium floor, wall, vitrified and designer tiles plus complete luxury bathware, faucets, basins and showers. Authorized showroom for Kajaria, Simpolo, Parryware and more across Governorpet and Chilakaluripeta."
     />
-    <meta name="theme-color" content="#141413" />
+    <meta name="theme-color" content="#070A12" />
+
+    <!-- Instant Theme Initialization (Prevent FOUC) -->
+    <script>
+      (function() {
+        try {
+          var saved = localStorage.getItem('tw-theme') || 'dark';
+          document.documentElement.setAttribute('data-theme', saved);
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
 
     <!-- Open Graph Metadata -->
     <meta property="og:type" content="website" />
