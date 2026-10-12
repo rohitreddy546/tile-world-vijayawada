@@ -21,17 +21,20 @@
 └──────────────┬───────────────────────────────┬────────────────┘
                │                               │
                ▼                               ▼
-┌──────────────────────────────┐ ┌──────────────────────────────┐
-│     SHOWCASE & SURFACES      │ │    CONVERSION & SHOWROOMS    │
-│  • Hero (Editorial entrance) │ │  • ShowroomsSection (Maps)   │
-│  • BrandTicker (Vector SVGs) │ │  • EnquirySection (CTA banner│
-│  • CategoriesSection         │ │  • EnquiryModal (Validation &│
-│  • CollectionsGallery        │ │    direct WhatsApp dispatch) │
-│  • CollectionModal (Specs)   │ │  • Footer (3 Branch Directory│
-│  • FinishesVideoSection      │ │    & Hours)                  │
-│  • ShowcaseGallery & Lightbox│ └──────────────────────────────┘
-│  • WhyChooseUs (Heritage)    │
-└──────────────┬───────────────┘
+┌───────────────────────────────────────────────────────────────┐
+│     SHOWCASE, STUDIO & CALCULATORS                            │
+│  • Hero (Editorial entrance)                                  │
+│  • BrandTicker (Vector SVGs)                                  │
+│  • CategoriesSection                                          │
+│  • CollectionsGallery (Live search & dimension chips)         │
+│  • RoomSurfacePreviewer (2D scene visualizer & lighting mode) │
+│  • TileEstimatorCalculator (Room area, boxes, wastage math)   │
+│  • CollectionModal (Full specs & box packing metrics)         │
+│  • FinishesVideoSection (Real MP4 video)                      │
+│  • ShowcaseGallery (Signature Stacking Cards scroll deck)     │
+│  • Lightbox (Fullscreen high-res photo viewer)                │
+│  • WhyChooseUs (Heritage since 2004)                          │
+└───────────────────────────────────────────────────────────────┘
                │
                ▼
 ┌───────────────────────────────────────────────────────────────┐

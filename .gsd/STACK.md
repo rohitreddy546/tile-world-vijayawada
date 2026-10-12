@@ -53,6 +53,7 @@
 | `@vitejs/plugin-react` | ^4.3.3 | Vite Fast Refresh and JSX transformation |
 | `typescript` | ^5.6.3 | Type checking compiler (`tsc --noEmit`) |
 | `vite` | ^5.4.10 | Development server and Rollup production bundler |
+| `vitest` | ^4.1.11 | High-performance unit test runner |
 
 ### Internal Component Dependencies
 | Component | Depends On | Purpose |
