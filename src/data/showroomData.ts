@@ -307,6 +307,14 @@ export const SHOWCASE_PROJECTS: ShowcaseProject[] = [
     description: 'Anti-skid parking and pathway tiles laid to take the weight of heavy vehicles and the beating of rain and tropical sun. Surfaces that stay sharp and safe year after year.',
     image: '/images/showcase-parking.jpg',
     spaceType: 'Exterior & Parking'
+  },
+  {
+    id: 'open-plan-flooring',
+    title: 'Seamless open-plan residential flooring',
+    tagline: 'Villas & Luxury Apartments',
+    description: 'Large-format 600x1200mm mirror-polished vitrified slabs laid with laser precision and minimal grout lines to create flowing, light-filled living spaces.',
+    image: '/images/shoppable-room.jpg',
+    spaceType: 'Vitrified Slabs'
   }
 ];
 
