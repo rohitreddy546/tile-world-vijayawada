@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ArrowUpRight, Phone, MessageSquare, Sun, Moon } from 'lucide-react';
 import { BUSINESS_INFO } from '../data/showroomData';
+import { getLenis } from '../hooks/useSmoothScroll';
 
 interface HeaderProps {
   onOpenEnquiry: (category?: string) => void;
@@ -38,8 +39,10 @@ export const Header: React.FC<HeaderProps> = ({ onOpenEnquiry }) => {
   useEffect(() => {
     if (mobileMenuOpen) {
       document.body.style.overflow = 'hidden';
+      getLenis()?.stop();
     } else {
       document.body.style.overflow = '';
+      getLenis()?.start();
     }
   }, [mobileMenuOpen]);
 
@@ -273,6 +276,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenEnquiry }) => {
           onClick={() => setMobileMenuOpen(false)}
         >
           <div
+            data-lenis-prevent
             style={{
               width: '85%',
               maxWidth: '380px',

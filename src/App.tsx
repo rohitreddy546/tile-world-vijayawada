@@ -26,6 +26,7 @@ export const App: React.FC = () => {
   const [enquiryCategory, setEnquiryCategory] = useState<string | undefined>(undefined);
   const [enquirySqFt, setEnquirySqFt] = useState<string | undefined>(undefined);
   const [enquiryMessage, setEnquiryMessage] = useState<string | undefined>(undefined);
+  const [galleryCategory, setGalleryCategory] = useState<string>('all');
 
   // Initialize smooth inertia sliding scroll physics
   useSmoothScroll();
@@ -81,7 +82,16 @@ export const App: React.FC = () => {
         {/* Product Category Architecture */}
         <div className="tw-reveal">
           <CategoriesSection
-            onSelectCategory={(_catId) => {
+            onSelectCategory={(catId) => {
+              const categoryMap: Record<string, string> = {
+                'vitrified-flooring': 'marble',
+                'bathroom-tiles': 'highlight',
+                'kitchen-wall-tiles': 'highlight',
+                'wallpaper-highlighters': 'mosaic',
+                'parking-outdoor': 'concrete',
+                'luxury-bathware': 'all'
+              };
+              setGalleryCategory(categoryMap[catId] || 'all');
               scrollToTarget('#collections', { offset: -84, duration: 1.35 });
             }}
           />
@@ -89,7 +99,11 @@ export const App: React.FC = () => {
 
         {/* Featured Collections Gallery with Specification Drawers */}
         <div className="tw-reveal">
-          <CollectionsGallery onOpenConsultation={(prod) => handleOpenEnquiry(prod)} />
+          <CollectionsGallery
+            selectedCategory={galleryCategory}
+            onSelectCategory={setGalleryCategory}
+            onOpenConsultation={(prod) => handleOpenEnquiry(prod)}
+          />
         </div>
 
         {/* Interactive Architectural Room Surface Previewer & Studio */}

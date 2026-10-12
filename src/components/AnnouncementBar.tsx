@@ -6,7 +6,7 @@ export const AnnouncementBar: React.FC = () => {
   return (
     <div style={{
       backgroundColor: 'var(--color-dark-bg)',
-      color: 'var(--color-text-inverse)',
+      color: '#E2E8F0',
       fontSize: '0.8125rem',
       padding: '0.5rem 1rem',
       borderBottom: '1px solid rgba(255, 255, 255, 0.08)',

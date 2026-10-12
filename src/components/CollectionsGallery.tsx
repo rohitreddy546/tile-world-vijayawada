@@ -5,10 +5,21 @@ import { CollectionModal } from './CollectionModal';
 
 interface CollectionsGalleryProps {
   onOpenConsultation: (productName: string) => void;
+  selectedCategory?: string;
+  onSelectCategory?: (category: string) => void;
 }
 
-export const CollectionsGallery: React.FC<CollectionsGalleryProps> = ({ onOpenConsultation }) => {
-  const [selectedCategory, setSelectedCategory] = useState<string>('all');
+export const CollectionsGallery: React.FC<CollectionsGalleryProps> = ({
+  onOpenConsultation,
+  selectedCategory: externalCategory,
+  onSelectCategory: externalSetCategory
+}) => {
+  const [internalCategory, setInternalCategory] = useState<string>('all');
+  const selectedCategory = externalCategory !== undefined ? externalCategory : internalCategory;
+  const setSelectedCategory = (cat: string) => {
+    if (externalSetCategory) externalSetCategory(cat);
+    setInternalCategory(cat);
+  };
   const [selectedDimension, setSelectedDimension] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [activeProduct, setActiveProduct] = useState<TileProduct | null>(null);

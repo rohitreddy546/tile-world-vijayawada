@@ -104,10 +104,13 @@ export const Footer: React.FC = () => {
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.625rem' }}>
               {[
                 { label: 'Home', href: '#' },
+                { label: 'Slab Journey & Story', href: '#cinematic-story' },
+                { label: 'Product Categories', href: '#categories' },
                 { label: 'Featured Collections', href: '#collections' },
-                { label: 'Product Architecture', href: '#categories' },
+                { label: '3D Room Studio', href: '#room-previewer' },
+                { label: 'Tile & Box Estimator', href: '#calculator' },
                 { label: 'Finishes In Motion', href: '#finishes' },
-                { label: 'Interior Showcase', href: '#showcase' },
+                { label: 'Showcase Gallery', href: '#showcase' },
                 { label: 'Why Tile World', href: '#why-us' },
                 { label: 'Showroom Locations', href: '#showrooms' },
                 { label: 'Contact & Enquiries', href: '#contact' }

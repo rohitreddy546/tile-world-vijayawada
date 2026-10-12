@@ -257,15 +257,17 @@ export const ShowroomsSection: React.FC = () => {
                   margin: 0
                 }}
               >
-                Tile World Showroom Map Location
+                {selectedShowroom.name} &bull; Map Location
               </h4>
               <p style={{ fontSize: '0.8125rem', color: 'var(--color-text-muted)', margin: 0 }}>
-                Prakasam Road, Governorpet, Vijayawada 520002
+                {selectedShowroom.address}, {selectedShowroom.city} {selectedShowroom.pincode}
               </p>
             </div>
 
             <a
-              href="https://www.google.com/maps?q=Tile%20World%2C%20D.No%2027-6-5%2C%20Prakasam%20Road%2C%20Governorpet%2C%20Vijayawada%2C%20Andhra%20Pradesh%20520002"
+              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                `${selectedShowroom.name}, ${selectedShowroom.address}, ${selectedShowroom.city} ${selectedShowroom.pincode}`
+              )}`}
               target="_blank"
               rel="noopener noreferrer"
               className="tw-btn tw-btn-primary"
@@ -286,8 +288,8 @@ export const ShowroomsSection: React.FC = () => {
             }}
           >
             <iframe
-              title="Tile World showroom location, Governorpet, Vijayawada"
-              src="https://www.google.com/maps?q=Tile%20World%2C%20D.No%2027-6-5%2C%20Prakasam%20Road%2C%20Governorpet%2C%20Vijayawada%2C%20Andhra%20Pradesh%20520002&output=embed"
+              title={`${selectedShowroom.name} location map`}
+              src={`https://www.google.com/maps?q=${encodeURIComponent(selectedShowroom.mapQuery)}&output=embed`}
               width="100%"
               height="100%"
               style={{ border: 0 }}

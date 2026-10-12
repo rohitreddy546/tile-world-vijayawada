@@ -127,12 +127,14 @@ export const CinematicSlabScrubber: React.FC<CinematicSlabScrubberProps> = ({ on
 
   // Direct manual chapter selection
   const selectChapter = (index: number) => {
+    if (isPlaying) setIsPlaying(false);
     setActiveChapterIndex(index);
     const chapterWidth = 1 / CINEMATIC_CHAPTERS.length;
     setProgress(index * chapterWidth + chapterWidth * 0.1);
   };
 
   const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (isPlaying) setIsPlaying(false);
     const val = parseFloat(e.target.value);
     setProgress(val);
   };

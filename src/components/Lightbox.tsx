@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { getLenis } from '../hooks/useSmoothScroll';
 
 export interface LightboxImage {
   src: string;
@@ -32,11 +33,13 @@ export const Lightbox: React.FC<LightboxProps> = ({
     if (currentIndex !== null) {
       window.addEventListener('keydown', handleKeyDown);
       document.body.style.overflow = 'hidden';
+      getLenis()?.stop();
     }
 
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = '';
+      getLenis()?.start();
     };
   }, [currentIndex, images.length, onClose, onNavigate]);
 

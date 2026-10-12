@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { X, MessageSquare, Phone, ShieldCheck, Ruler, Sparkles, Building2 } from 'lucide-react';
 import { TileProduct, BUSINESS_INFO } from '../data/showroomData';
+import { getLenis } from '../hooks/useSmoothScroll';
 
 interface CollectionModalProps {
   product: TileProduct | null;
@@ -21,10 +22,12 @@ export const CollectionModal: React.FC<CollectionModalProps> = ({
     if (product) {
       window.addEventListener('keydown', handleKeyDown);
       document.body.style.overflow = 'hidden';
+      getLenis()?.stop();
     }
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = '';
+      getLenis()?.start();
     };
   }, [product, onClose]);
 
@@ -55,6 +58,7 @@ export const CollectionModal: React.FC<CollectionModalProps> = ({
       aria-labelledby="modal-product-title"
     >
       <div
+        data-lenis-prevent
         style={{
           width: '100%',
           maxWidth: '860px',

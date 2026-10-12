@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { X, Phone, MessageSquare, CheckCircle2, AlertCircle } from 'lucide-react';
 import { BUSINESS_INFO, SHOWROOMS } from '../data/showroomData';
 import { validateEnquiryForm, formatWhatsAppEnquiryUrl } from '../utils/validation';
+import { getLenis } from '../hooks/useSmoothScroll';
 
 interface EnquiryModalProps {
   isOpen: boolean;
@@ -42,10 +43,12 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
     if (isOpen) {
       window.addEventListener('keydown', handleKeyDown);
       document.body.style.overflow = 'hidden';
+      getLenis()?.stop();
     }
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = '';
+      getLenis()?.start();
     };
   }, [isOpen, onClose]);
 
@@ -100,6 +103,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
       aria-labelledby="modal-enquiry-title"
     >
       <div
+        data-lenis-prevent
         style={{
           width: '100%',
           maxWidth: '580px',

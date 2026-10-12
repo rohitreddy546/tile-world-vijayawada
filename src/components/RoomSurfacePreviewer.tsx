@@ -39,7 +39,7 @@ export const RoomSurfacePreviewer: React.FC<RoomSurfacePreviewerProps> = ({ onOp
       name: 'Grand Reception Living',
       subtitle: 'Open-plan luxury living with double-height windows and continuous vitrified planes',
       image: '/images/hero-living-room.jpg',
-      defaultFloorId: 'statuario-luxe',
+      defaultFloorId: 'statuario-gold',
       defaultWallId: 'agatha-decor',
       floorHotspot: { x: 48, y: 82, label: 'Continuous Floor Plane' },
       wallHotspot: { x: 74, y: 38, label: 'Architectural Feature Wall' }
@@ -60,7 +60,7 @@ export const RoomSurfacePreviewer: React.FC<RoomSurfacePreviewerProps> = ({ onOp
       subtitle: 'Gourmet cooking island and dining zone with stain-resistant flooring and reflective backsplash',
       image: '/images/hero-kitchen.jpg',
       defaultFloorId: 'natural-oak',
-      defaultWallId: 'emerald-metro',
+      defaultWallId: 'emerald-gloss',
       floorHotspot: { x: 46, y: 85, label: 'Warm Wood Vitrified Plank' },
       wallHotspot: { x: 62, y: 44, label: 'Artisanal Glazed Splash' }
     }
@@ -69,7 +69,7 @@ export const RoomSurfacePreviewer: React.FC<RoomSurfacePreviewerProps> = ({ onOp
   // State management
   const [activeRoomIndex, setActiveRoomIndex] = useState(0);
   const [activeZone, setActiveZone] = useState<'floor' | 'wall'>('floor');
-  const [selectedFloorId, setSelectedFloorId] = useState<string>('statuario-luxe');
+  const [selectedFloorId, setSelectedFloorId] = useState<string>('statuario-gold');
   const [selectedWallId, setSelectedWallId] = useState<string>('agatha-decor');
   const [lightingMode, setLightingMode] = useState<'daylight' | 'warm' | 'evening'>('warm');
   const [isSplitMode, setIsSplitMode] = useState(false);
