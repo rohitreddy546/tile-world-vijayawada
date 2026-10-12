@@ -1,0 +1,304 @@
+/* ==========================================================================
+   TILE WORLD VIJAYAWADA — ARCHITECTURAL DESIGN SYSTEM & STYLESHEET
+   Curated palette: Warm Ivory, Limestone, Charcoal, Soft Greige, Bronze Accents
+   ========================================================================== */
+
+:root {
+  /* Architectural Color Tokens */
+  --color-bg: #FBF9F5;              /* Luminous Warm Ivory */
+  --color-surface: #FFFFFF;         /* Crisp White Tile Surface */
+  --color-surface-subtle: #F5F1E9;  /* Muted Limestone Elevation */
+  --color-surface-sunken: #EFE9DE;  /* Deep Warm Sand */
+  
+  --color-text-main: #1A1918;       /* Deep Charcoal Ink */
+  --color-text-muted: #5C5852;      /* Architectural Greige Text */
+  --color-text-subtle: #8C867D;     /* Soft Metadata Gray */
+  --color-text-inverse: #FBF9F5;    /* Light Text on Dark Surfaces */
+
+  --color-dark-bg: #141312;         /* Deep Architectural Basalt */
+  --color-dark-surface: #1E1D1B;    /* Charcoal Surface Elevation */
+  --color-dark-border: rgba(255, 255, 255, 0.1);
+
+  --color-border: #E6E1D6;          /* Refined Stone Border */
+  --color-border-subtle: #EDE9E0;   /* Light Divider */
+  --color-border-active: #1A1918;   /* High-Contrast Interactive Border */
+
+  /* Restrained Metallic Bronze Accents */
+  --color-bronze: #A07849;
+  --color-bronze-light: #F4EDE4;
+  --color-bronze-dark: #7F5D34;
+  --color-bronze-glow: rgba(160, 120, 73, 0.15);
+
+  /* Functional Accents */
+  --color-whatsapp: #25D366;
+  --color-whatsapp-dark: #1EBE5D;
+
+  /* Typography */
+  --font-serif: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Layout Spacing */
+  --container-max: 1380px;
+  --container-pad: clamp(1.25rem, 4vw, 3rem);
+  --section-pad: clamp(4rem, 8vw, 7.5rem);
+
+  /* Radius */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-pill: 9999px;
+
+  /* Subtle Architectural Elevation */
+  --shadow-sm: 0 2px 8px rgba(26, 25, 24, 0.04);
+  --shadow-md: 0 8px 24px rgba(26, 25, 24, 0.06);
+  --shadow-lg: 0 16px 40px rgba(26, 25, 24, 0.08);
+  --shadow-xl: 0 24px 60px rgba(26, 25, 24, 0.12);
+
+  /* Easing & Motion */
+  --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-sharp: cubic-bezier(0.25, 1, 0.5, 1);
+  --transition-fast: 160ms var(--ease-sharp);
+  --transition-normal: 280ms var(--ease-editorial);
+  --transition-slow: 600ms var(--ease-editorial);
+
+  /* Z-Index Hierarchy */
+  --z-header: 100;
+  --z-drawer: 200;
+  --z-modal: 300;
+  --z-lightbox: 400;
+  --z-toast: 500;
+}
+
+/* Base Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-sans);
+  color: var(--color-text-main);
+  background-color: var(--color-bg);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  line-height: 1.6;
+  background-color: var(--color-bg);
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Focus styles for keyboard accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-bronze);
+  outline-offset: 3px;
+}
+
+/* Layout Utilities */
+.tw-container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-pad);
+  padding-right: var(--container-pad);
+}
+
+.tw-section {
+  padding-top: var(--section-pad);
+  padding-bottom: var(--section-pad);
+  position: relative;
+}
+
+/* Editorial Eyebrow & Badges */
+.tw-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-bronze);
+  margin-bottom: 0.875rem;
+}
+
+.tw-eyebrow-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-bronze);
+  display: inline-block;
+}
+
+.tw-section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--color-text-main);
+  margin-bottom: 1rem;
+}
+
+.tw-section-subtitle {
+  font-size: clamp(1rem, 1.25vw, 1.125rem);
+  color: var(--color-text-muted);
+  max-width: 620px;
+  line-height: 1.7;
+}
+
+/* Button & Action Components */
+.tw-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  padding: 0.875rem 1.625rem;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  border-radius: var(--radius-xs);
+  transition: all var(--transition-normal);
+  white-space: nowrap;
+}
+
+.tw-btn-primary {
+  background-color: var(--color-dark-bg);
+  color: var(--color-text-inverse);
+  border: 1px solid var(--color-dark-bg);
+}
+
+.tw-btn-primary:hover {
+  background-color: #2D2B28;
+  border-color: #2D2B28;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(20, 19, 18, 0.18);
+}
+
+.tw-btn-secondary {
+  background-color: transparent;
+  color: var(--color-text-main);
+  border: 1px solid var(--color-border-active);
+}
+
+.tw-btn-secondary:hover {
+  background-color: var(--color-surface-subtle);
+  transform: translateY(-1px);
+}
+
+.tw-btn-bronze {
+  background-color: var(--color-bronze);
+  color: #FFFFFF;
+  border: 1px solid var(--color-bronze);
+}
+
+.tw-btn-bronze:hover {
+  background-color: var(--color-bronze-dark);
+  border-color: var(--color-bronze-dark);
+  transform: translateY(-1px);
+}
+
+.tw-btn-whatsapp {
+  background-color: #25D366;
+  color: #FFFFFF;
+  border: 1px solid #25D366;
+}
+
+.tw-btn-whatsapp:hover {
+  background-color: #1EBE5D;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.25);
+}
+
+/* Subtle line separator */
+.tw-divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-border);
+}
+
+/* ==========================================================================
+   MOTION ENGINE: Keyframe animations & Reduced-Motion Mode
+   ========================================================================== */
+
+@keyframes twFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes twFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes twScaleReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes twTickerSlide {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.tw-animate-in {
+  animation: twFadeInUp var(--transition-slow) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .tw-ticker-track {
+    animation: none !important;
+  }
+}
+
+/* Responsive Image Container */
+.tw-media-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}

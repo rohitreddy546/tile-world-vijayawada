@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 80" width="160" height="80">
+  <rect width="160" height="80" fill="#ffffff" rx="8"/>
+  <!-- Mosaic Tile Icon -->
+  <rect x="74" y="16" width="5" height="5" fill="#cb1e26"/>
+  <rect x="81" y="16" width="5" height="5" fill="#005ba4"/>
+  <rect x="74" y="23" width="5" height="5" fill="#ffd600"/>
+  <rect x="81" y="23" width="5" height="5" fill="#1c1c1c"/>
+  
+  <text x="50%" y="52%" dominant-baseline="middle" text-anchor="middle" font-family="'Times New Roman', Georgia, serif" font-weight="700" font-size="18" fill="#111111" letter-spacing="0.04em">MURANO</text>
+  <text x="50%" y="70%" dominant-baseline="middle" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="400" font-size="6.5" fill="#777777" letter-spacing="0.08em">THE PERFECT LOOK</text>
+</svg>

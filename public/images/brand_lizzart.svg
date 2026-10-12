@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 80" width="160" height="80">
+  <rect width="160" height="80" fill="#ffffff" rx="8"/>
+  <!-- Droplet outline -->
+  <path d="M80,18 C83,23 88,27 88,32 C88,36 84,40 80,40 C76,40 72,36 72,32 C72,27 77,23 80,18 Z" fill="none" stroke="#222222" stroke-width="1.5"/>
+  <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="16" fill="#111111" letter-spacing="0.04em">Lizzart</text>
+  <text x="50%" y="71%" dominant-baseline="middle" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="600" font-size="6.5" fill="#888888" letter-spacing="0.1em">B A T H W A R E</text>
+</svg>

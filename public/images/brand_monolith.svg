@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 80" width="160" height="80">
+  <rect width="160" height="80" fill="#1c1c1c" rx="8"/>
+  <!-- Minimalist slab contour -->
+  <polygon points="15,15 145,15 145,20 15,20" fill="#D4AF37"/>
+  <text x="50%" y="45%" dominant-baseline="middle" text-anchor="middle" font-family="'Times New Roman', Times, serif" font-weight="400" font-size="17" fill="#D4AF37" letter-spacing="0.15em">MONOLITH</text>
+  <text x="50%" y="66%" dominant-baseline="middle" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="300" font-size="6.5" fill="#ffffff" letter-spacing="0.12em">BY KAJARIA</text>
+</svg>

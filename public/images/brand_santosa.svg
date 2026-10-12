@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 80" width="160" height="80">
+  <rect width="160" height="80" fill="#ffffff" rx="8"/>
+  <!-- Tiles grid diagram -->
+  <polygon points="72,16 88,16 93,24 67,24" fill="none" stroke="#222222" stroke-width="1"/>
+  <line x1="80" y1="16" x2="80" y2="24" stroke="#222222" stroke-width="1"/>
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="800" font-size="18" fill="#111111" letter-spacing="0.05em">SANTOSA</text>
+  <text x="50%" y="68%" dominant-baseline="middle" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="500" font-size="7" fill="#666666" letter-spacing="0.1em">TILES GALLERY</text>
+</svg>
