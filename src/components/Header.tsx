@@ -30,6 +30,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenEnquiry }) => {
   const navLinks = [
     { label: 'Home', href: '#' },
     { label: 'Collections', href: '#collections' },
+    { label: 'Room Studio', href: '#room-previewer' },
     { label: 'Estimator', href: '#calculator' },
     { label: 'Categories', href: '#categories' },
     { label: 'Finishes', href: '#finishes' },

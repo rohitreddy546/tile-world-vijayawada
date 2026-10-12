@@ -14,6 +14,7 @@ import { EnquirySection } from './components/EnquirySection';
 import { Footer } from './components/Footer';
 import { EnquiryModal } from './components/EnquiryModal';
 import { TileEstimatorCalculator } from './components/TileEstimatorCalculator';
+import { RoomSurfacePreviewer } from './components/RoomSurfacePreviewer';
 import { BUSINESS_INFO } from './data/showroomData';
 
 export const App: React.FC = () => {
@@ -71,6 +72,9 @@ export const App: React.FC = () => {
 
         {/* Featured Collections Gallery with Specification Drawers */}
         <CollectionsGallery onOpenConsultation={(prod) => handleOpenEnquiry(prod)} />
+
+        {/* Interactive Architectural Room Surface Previewer & Studio */}
+        <RoomSurfacePreviewer onOpenConsultation={(space) => handleOpenEnquiry(space)} />
 
         {/* Interactive Tile Coverage & Box Estimator Tool */}
         <TileEstimatorCalculator onOpenConsultationWithEstimate={handleOpenEnquiryWithEstimate} />
