@@ -156,8 +156,8 @@ export const CinematicSlabScrubber: React.FC<CinematicSlabScrubberProps> = ({ on
         backgroundColor: 'transparent',
         position: 'relative',
         overflow: 'hidden',
-        borderTop: '1px solid var(--color-border)',
-        borderBottom: '1px solid var(--color-border)'
+        borderTop: '1px solid rgba(255, 255, 255, 0.06)',
+        borderBottom: '1px solid rgba(255, 255, 255, 0.06)'
       }}
       aria-label="Cinematic Slab Journey: From Quarry to Living Space"
     >

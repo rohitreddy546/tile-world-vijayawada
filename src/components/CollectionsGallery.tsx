@@ -68,7 +68,7 @@ export const CollectionsGallery: React.FC<CollectionsGalleryProps> = ({ onOpenCo
   const isFiltered = selectedCategory !== 'all' || selectedDimension !== 'all' || searchQuery.trim().length > 0;
 
   return (
-    <section id="collections" className="tw-section" style={{ backgroundColor: 'rgba(15, 23, 42, 0.45)', backdropFilter: 'blur(10px)' }}>
+    <section id="collections" className="tw-section" style={{ backgroundColor: 'transparent' }}>
       <div className="tw-container">
         {/* Section Header */}
         <div

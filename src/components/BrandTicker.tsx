@@ -10,10 +10,9 @@ export const BrandTicker: React.FC = () => {
       style={{
         paddingTop: '2.5rem',
         paddingBottom: '3rem',
-        backgroundColor: 'rgba(15, 23, 42, 0.45)',
-        backdropFilter: 'blur(10px)',
-        borderTop: '1px solid var(--color-border)',
-        borderBottom: '1px solid var(--color-border)',
+        backgroundColor: 'transparent',
+        borderTop: '1px solid rgba(255, 255, 255, 0.06)',
+        borderBottom: '1px solid rgba(255, 255, 255, 0.06)',
         overflow: 'hidden'
       }}
       aria-label="Authorized Brand Partners"

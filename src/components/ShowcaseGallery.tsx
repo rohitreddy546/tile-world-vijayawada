@@ -51,7 +51,7 @@ export const ShowcaseGallery: React.FC<ShowcaseGalleryProps> = ({ onOpenConsulta
   ];
 
   return (
-    <section id="showcase" className="tw-section" style={{ backgroundColor: 'rgba(15, 23, 42, 0.45)', backdropFilter: 'blur(10px)', position: 'relative' }}>
+    <section id="showcase" className="tw-section" style={{ backgroundColor: 'transparent', position: 'relative' }}>
       <div className="tw-container">
         {/* Section Header */}
         <div style={{ maxWidth: '760px', marginBottom: '3.5rem' }}>

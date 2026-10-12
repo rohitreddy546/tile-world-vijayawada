@@ -19,12 +19,16 @@ import { TileEstimatorCalculator } from './components/TileEstimatorCalculator';
 import { RoomSurfacePreviewer } from './components/RoomSurfacePreviewer';
 import { BUSINESS_INFO } from './data/showroomData';
 import { useScrollReveal } from './hooks/useScrollReveal';
+import { useSmoothScroll, scrollToTarget } from './hooks/useSmoothScroll';
 
 export const App: React.FC = () => {
   const [enquiryModalOpen, setEnquiryModalOpen] = useState(false);
   const [enquiryCategory, setEnquiryCategory] = useState<string | undefined>(undefined);
   const [enquirySqFt, setEnquirySqFt] = useState<string | undefined>(undefined);
   const [enquiryMessage, setEnquiryMessage] = useState<string | undefined>(undefined);
+
+  // Initialize smooth inertia sliding scroll physics
+  useSmoothScroll();
 
   // Initialize interactive scroll reveal observer
   useScrollReveal();
@@ -78,10 +82,7 @@ export const App: React.FC = () => {
         <div className="tw-reveal">
           <CategoriesSection
             onSelectCategory={(_catId) => {
-              const element = document.getElementById('collections');
-              if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-              }
+              scrollToTarget('#collections', { offset: -84, duration: 1.35 });
             }}
           />
         </div>
