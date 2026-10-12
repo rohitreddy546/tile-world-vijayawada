@@ -31,9 +31,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenEnquiry }) => {
           className="tw-hero-grid"
         >
           {/* Left Column: Editorial Headline & Actions */}
-          <div style={{ maxWidth: '640px' }}>
+          <div style={{ maxWidth: '640px' }} className="tw-reveal is-visible">
             <div className="tw-eyebrow" style={{ marginBottom: '1.25rem' }}>
-              <span className="tw-eyebrow-dot"></span>
+              <span className="tw-eyebrow-dot" style={{ animation: 'twBeaconPulse 2s infinite' }}></span>
               <span>Architectural Surfaces &bull; Complete Bathware</span>
             </div>
 
@@ -159,8 +159,43 @@ export const Hero: React.FC<HeroProps> = ({ onOpenEnquiry }) => {
             </div>
           </div>
 
-          {/* Right Column: Architectural Photography Collage */}
-          <div style={{ position: 'relative' }}>
+          {/* Right Column: Architectural Photography Collage with Dynamic Floating Elements */}
+          <div style={{ position: 'relative' }} className="tw-reveal is-visible">
+            {/* Top-Right Floating Trust Badge */}
+            <div
+              style={{
+                position: 'absolute',
+                top: '-1.5rem',
+                right: '1.5rem',
+                backgroundColor: 'rgba(20, 19, 18, 0.88)',
+                backdropFilter: 'blur(10px)',
+                padding: '0.625rem 1.125rem',
+                borderRadius: 'var(--radius-pill)',
+                boxShadow: '0 12px 30px rgba(0, 0, 0, 0.3)',
+                border: '1px solid rgba(255, 255, 255, 0.15)',
+                color: '#FFFFFF',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.625rem',
+                zIndex: 5,
+                animation: 'twFloatDelayed 6s ease-in-out infinite'
+              }}
+              className="tw-floating-top-badge"
+            >
+              <div
+                style={{
+                  width: '8px',
+                  height: '8px',
+                  borderRadius: '50%',
+                  backgroundColor: '#25D366',
+                  animation: 'twBeaconPulse 2s infinite'
+                }}
+              />
+              <span style={{ fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.04em' }}>
+                Authorized Partner &bull; Kajaria &bull; Simpolo
+              </span>
+            </div>
+
             <div
               style={{
                 position: 'relative',
@@ -177,8 +212,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenEnquiry }) => {
                 style={{
                   width: '100%',
                   height: '100%',
-                  objectFit: 'cover'
+                  objectFit: 'cover',
+                  transition: 'transform 600ms cubic-bezier(0.16, 1, 0.3, 1)'
                 }}
+                className="tw-hero-main-img"
                 loading="eager"
               />
               <div
@@ -218,15 +255,18 @@ export const Hero: React.FC<HeroProps> = ({ onOpenEnquiry }) => {
                     fontSize: '0.75rem',
                     fontWeight: 600,
                     borderRadius: 'var(--radius-xs)',
-                    letterSpacing: '0.02em'
+                    letterSpacing: '0.02em',
+                    transition: 'transform var(--transition-fast)'
                   }}
+                  onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.05)')}
+                  onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
                 >
                   Consult Showroom
                 </button>
               </div>
             </div>
 
-            {/* Overlapping Tactile Detail Floating Card */}
+            {/* Overlapping Tactile Detail Floating Card with Organic Bobbing Animation */}
             <div
               style={{
                 position: 'absolute',
@@ -235,12 +275,14 @@ export const Hero: React.FC<HeroProps> = ({ onOpenEnquiry }) => {
                 backgroundColor: 'var(--color-surface)',
                 padding: '1rem 1.25rem',
                 borderRadius: 'var(--radius-sm)',
-                boxShadow: 'var(--shadow-lg)',
+                boxShadow: '0 20px 40px rgba(20, 19, 18, 0.16)',
                 border: '1px solid var(--color-border)',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '0.875rem',
-                maxWidth: '280px'
+                maxWidth: '280px',
+                zIndex: 6,
+                animation: 'twFloatSlow 5s ease-in-out infinite'
               }}
               className="tw-floating-card"
             >
@@ -272,6 +314,36 @@ export const Hero: React.FC<HeroProps> = ({ onOpenEnquiry }) => {
         </div>
       </div>
 
+      {/* Animated Scroll Discovery Indicator */}
+      <a
+        href="#collections"
+        style={{
+          position: 'absolute',
+          bottom: '1rem',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: '0.35rem',
+          color: 'var(--color-text-subtle)',
+          fontSize: '0.6875rem',
+          textTransform: 'uppercase',
+          letterSpacing: '0.12em',
+          fontWeight: 600,
+          textDecoration: 'none',
+          zIndex: 4,
+          transition: 'color var(--transition-fast)'
+        }}
+        className="tw-hero-scroll-indicator"
+        aria-label="Scroll down to browse collections"
+      >
+        <span>Explore Surfaces</span>
+        <div style={{ animation: 'twScrollBounce 2.2s ease infinite' }}>
+          <ArrowDown size={14} color="var(--color-bronze)" />
+        </div>
+      </a>
+
       {/* Responsive Grid Rules */}
       <style>{`
         @media (max-width: 960px) {
@@ -280,6 +352,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenEnquiry }) => {
             gap: 3rem !important;
           }
           .tw-floating-card {
+            display: none !important;
+          }
+          .tw-floating-top-badge {
+            display: none !important;
+          }
+          .tw-hero-scroll-indicator {
             display: none !important;
           }
         }

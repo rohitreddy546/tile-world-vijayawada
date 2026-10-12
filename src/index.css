@@ -244,13 +244,13 @@ button {
 }
 
 /* ==========================================================================
-   MOTION ENGINE: Keyframe animations & Reduced-Motion Mode
+   MOTION ENGINE: Keyframe animations, Scroll Reveals & Interactive Micro-Interactions
    ========================================================================== */
 
 @keyframes twFadeInUp {
   from {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(28px);
   }
   to {
     opacity: 1;
@@ -279,16 +279,215 @@ button {
   100% { transform: translateX(-50%); }
 }
 
-.tw-animate-in {
-  animation: twFadeInUp var(--transition-slow) both;
+/* Organic Floating Animations for Hero Badges */
+@keyframes twFloatSlow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
+@keyframes twFloatDelayed {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(7px);
+  }
+}
+
+/* Beacon & Hotspot Pulse Waves */
+@keyframes twBeaconPulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(160, 120, 73, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 9px rgba(160, 120, 73, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(160, 120, 73, 0);
+  }
+}
+
+@keyframes twRadarPulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.85);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.4);
+    opacity: 0;
+  }
+}
+
+/* Specular Light Sweep Across Tiles */
+@keyframes twShimmerSweep {
+  0% {
+    transform: translateX(-150%) skewX(-20deg);
+  }
+  100% {
+    transform: translateX(250%) skewX(-20deg);
+  }
+}
+
+/* Scroll Bouncing Arrow */
+@keyframes twScrollBounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(6px);
+  }
+  60% {
+    transform: translateY(3px);
+  }
+}
+
+/* WhatsApp Floating Button Pulse Ring */
+@keyframes twWaPulseRing {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+/* Ambient Glow Breath */
+@keyframes twGlowBreath {
+  0%, 100% {
+    opacity: 0.12;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.22;
+    transform: scale(1.08);
+  }
+}
+
+/* Scroll Reveal Classes */
+.tw-reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 700ms cubic-bezier(0.16, 1, 0.3, 1), transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.tw-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.tw-reveal-scale {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 700ms cubic-bezier(0.16, 1, 0.3, 1), transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tw-reveal-scale.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Stagger Delays */
+.tw-stagger-1 { transition-delay: 80ms; }
+.tw-stagger-2 { transition-delay: 160ms; }
+.tw-stagger-3 { transition-delay: 240ms; }
+.tw-stagger-4 { transition-delay: 320ms; }
+.tw-stagger-5 { transition-delay: 400ms; }
+
+/* Interactive Tile Card Styles */
+.tw-interactive-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 320ms cubic-bezier(0.16, 1, 0.3, 1), border-color 320ms ease;
+}
+
+.tw-interactive-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 42px rgba(20, 19, 18, 0.16) !important;
+  border-color: rgba(160, 120, 73, 0.4) !important;
+}
+
+.tw-interactive-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.18) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: translateX(-150%) skewX(-20deg);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.tw-interactive-card:hover::after {
+  animation: twShimmerSweep 900ms ease forwards;
+}
+
+/* Navigation Animated Gold Bar Indicator */
+.tw-nav-link-item {
+  position: relative;
+  transition: color var(--transition-fast);
+  padding: 0.375rem 0;
+}
+
+.tw-nav-link-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-bronze);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 260ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tw-nav-link-item:hover::after {
+  transform: scaleX(1);
+}
+
+/* Interactive Hotspot Ripple */
+.tw-hotspot-ripple {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-pill);
+  border: 2px solid var(--color-bronze-light);
+  animation: twRadarPulse 2.4s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  pointer-events: none;
+}
+
+/* Reduced Motion Override */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+  .tw-reveal, .tw-reveal-scale {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
   .tw-ticker-track {
     animation: none !important;

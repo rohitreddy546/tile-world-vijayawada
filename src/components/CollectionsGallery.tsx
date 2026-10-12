@@ -286,7 +286,7 @@ export const CollectionsGallery: React.FC<CollectionsGalleryProps> = ({ onOpenCo
               gap: '1.75rem'
             }}
           >
-            {filteredProducts.map((product) => (
+            {filteredProducts.map((product, pIdx) => (
               <div
                 key={product.id}
                 style={{
@@ -297,10 +297,10 @@ export const CollectionsGallery: React.FC<CollectionsGalleryProps> = ({ onOpenCo
                   boxShadow: 'var(--shadow-sm)',
                   display: 'flex',
                   flexDirection: 'column',
-                  transition: 'all var(--transition-normal)',
-                  cursor: 'pointer'
+                  cursor: 'pointer',
+                  transitionDelay: `${(pIdx % 4) * 60}ms`
                 }}
-                className="tw-product-card"
+                className="tw-product-card tw-interactive-card tw-reveal is-visible"
                 onClick={() => setActiveProduct(product)}
               >
                 {/* Product Image Container */}

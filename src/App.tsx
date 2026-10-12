@@ -16,12 +16,16 @@ import { EnquiryModal } from './components/EnquiryModal';
 import { TileEstimatorCalculator } from './components/TileEstimatorCalculator';
 import { RoomSurfacePreviewer } from './components/RoomSurfacePreviewer';
 import { BUSINESS_INFO } from './data/showroomData';
+import { useScrollReveal } from './hooks/useScrollReveal';
 
 export const App: React.FC = () => {
   const [enquiryModalOpen, setEnquiryModalOpen] = useState(false);
   const [enquiryCategory, setEnquiryCategory] = useState<string | undefined>(undefined);
   const [enquirySqFt, setEnquirySqFt] = useState<string | undefined>(undefined);
   const [enquiryMessage, setEnquiryMessage] = useState<string | undefined>(undefined);
+
+  // Initialize interactive scroll reveal observer
+  useScrollReveal();
 
   const handleOpenEnquiry = (category?: string) => {
     setEnquiryCategory(category);
@@ -49,7 +53,7 @@ export const App: React.FC = () => {
       {/* 1. Announcement Bar */}
       <AnnouncementBar />
 
-      {/* 2. Architectural Header */}
+      {/* 2. Architectural Header with collision-proof navigation */}
       <Header onOpenEnquiry={handleOpenEnquiry} />
 
       {/* 3. Main Content Landmark */}
@@ -61,38 +65,54 @@ export const App: React.FC = () => {
         <BrandTicker />
 
         {/* Product Category Architecture */}
-        <CategoriesSection
-          onSelectCategory={(_catId) => {
-            const element = document.getElementById('collections');
-            if (element) {
-              element.scrollIntoView({ behavior: 'smooth' });
-            }
-          }}
-        />
+        <div className="tw-reveal">
+          <CategoriesSection
+            onSelectCategory={(_catId) => {
+              const element = document.getElementById('collections');
+              if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+          />
+        </div>
 
         {/* Featured Collections Gallery with Specification Drawers */}
-        <CollectionsGallery onOpenConsultation={(prod) => handleOpenEnquiry(prod)} />
+        <div className="tw-reveal">
+          <CollectionsGallery onOpenConsultation={(prod) => handleOpenEnquiry(prod)} />
+        </div>
 
         {/* Interactive Architectural Room Surface Previewer & Studio */}
-        <RoomSurfacePreviewer onOpenConsultation={(space) => handleOpenEnquiry(space)} />
+        <div className="tw-reveal">
+          <RoomSurfacePreviewer onOpenConsultation={(space) => handleOpenEnquiry(space)} />
+        </div>
 
         {/* Interactive Tile Coverage & Box Estimator Tool */}
-        <TileEstimatorCalculator onOpenConsultationWithEstimate={handleOpenEnquiryWithEstimate} />
+        <div className="tw-reveal">
+          <TileEstimatorCalculator onOpenConsultationWithEstimate={handleOpenEnquiryWithEstimate} />
+        </div>
 
         {/* Tactile Finishes & Real MP4 Video Showcase */}
-        <FinishesVideoSection />
+        <div className="tw-reveal">
+          <FinishesVideoSection />
+        </div>
 
-        {/* Interior Installations Showcase with Fullscreen Lightbox */}
+        {/* Interior Installations Showcase with Stacking Cards Deck Effect */}
         <ShowcaseGallery onOpenConsultation={(space) => handleOpenEnquiry(space)} />
 
         {/* Business Heritage & Supported Strengths */}
-        <WhyChooseUs onOpenEnquiry={() => handleOpenEnquiry()} />
+        <div className="tw-reveal">
+          <WhyChooseUs onOpenEnquiry={() => handleOpenEnquiry()} />
+        </div>
 
         {/* Verified Showrooms Network with Google Maps */}
-        <ShowroomsSection />
+        <div className="tw-reveal">
+          <ShowroomsSection />
+        </div>
 
         {/* Interactive Consultation & Enquiry Section */}
-        <EnquirySection onOpenEnquiry={() => handleOpenEnquiry()} />
+        <div className="tw-reveal">
+          <EnquirySection onOpenEnquiry={() => handleOpenEnquiry()} />
+        </div>
       </main>
 
       {/* 4. Architectural Footer */}
@@ -107,7 +127,7 @@ export const App: React.FC = () => {
         initialMessage={enquiryMessage}
       />
 
-      {/* 6. Floating Persistent WhatsApp Button */}
+      {/* 6. Floating Persistent WhatsApp Button with Breathing Pulse */}
       <aside aria-label="Quick contact shortcuts">
         <a
           href={BUSINESS_INFO.whatsappUrl}
@@ -130,7 +150,8 @@ export const App: React.FC = () => {
             fontWeight: 600,
             fontSize: '0.875rem',
             letterSpacing: '0.01em',
-            transition: 'all var(--transition-fast)'
+            transition: 'all var(--transition-fast)',
+            animation: 'twWaPulseRing 3.5s infinite'
           }}
           className="tw-floating-wa-btn"
           aria-label="Direct WhatsApp consultation with Tile World"
@@ -142,8 +163,8 @@ export const App: React.FC = () => {
 
       <style>{`
         .tw-floating-wa-btn:hover {
-          transform: translateY(-2px) scale(1.03);
-          box-shadow: 0 12px 28px rgba(37, 211, 102, 0.45);
+          transform: translateY(-2px) scale(1.04);
+          box-shadow: 0 12px 28px rgba(37, 211, 102, 0.5) !important;
         }
         @media (max-width: 600px) {
           .tw-wa-label {

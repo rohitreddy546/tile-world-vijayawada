@@ -455,81 +455,95 @@ export const RoomSurfacePreviewer: React.FC<RoomSurfacePreviewerProps> = ({ onOp
                 </div>
               )}
 
-              {/* Interactive Hotspot 1: Flooring Pin */}
-              <button
-                type="button"
-                onClick={() => setActiveZone('floor')}
+              {/* Interactive Hotspot 1: Flooring Pin with Sonar Radar Wave */}
+              <div
                 style={{
                   position: 'absolute',
                   left: `${activeRoom.floorHotspot.x}%`,
                   top: `${activeRoom.floorHotspot.y}%`,
                   transform: 'translate(-50%, -50%)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.5rem',
-                  padding: '0.45rem 0.85rem',
-                  borderRadius: 'var(--radius-pill)',
-                  backgroundColor: activeZone === 'floor' ? 'var(--color-bronze)' : 'rgba(20, 19, 18, 0.85)',
-                  color: '#FFFFFF',
-                  border: activeZone === 'floor' ? '2px solid #FFFFFF' : '1px solid rgba(255, 255, 255, 0.25)',
-                  boxShadow: '0 8px 24px rgba(0, 0, 0, 0.45)',
-                  backdropFilter: 'blur(8px)',
-                  cursor: 'pointer',
-                  zIndex: 10,
-                  transition: 'all var(--transition-fast)'
+                  zIndex: 10
                 }}
-                aria-label="Select Flooring Surface Zone"
               >
-                <div
+                <div className="tw-hotspot-ripple" />
+                <button
+                  type="button"
+                  onClick={() => setActiveZone('floor')}
                   style={{
-                    width: '8px',
-                    height: '8px',
-                    borderRadius: '50%',
-                    backgroundColor: activeZone === 'floor' ? '#FFFFFF' : 'var(--color-bronze)'
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.5rem',
+                    padding: '0.45rem 0.85rem',
+                    borderRadius: 'var(--radius-pill)',
+                    backgroundColor: activeZone === 'floor' ? 'var(--color-bronze)' : 'rgba(20, 19, 18, 0.85)',
+                    color: '#FFFFFF',
+                    border: activeZone === 'floor' ? '2px solid #FFFFFF' : '1px solid rgba(255, 255, 255, 0.25)',
+                    boxShadow: '0 8px 24px rgba(0, 0, 0, 0.45)',
+                    backdropFilter: 'blur(8px)',
+                    cursor: 'pointer',
+                    transition: 'all var(--transition-fast)'
                   }}
-                />
-                <span style={{ fontSize: '0.75rem', fontWeight: 600 }}>
-                  Flooring: {selectedFloorProduct.name.split(' ')[0]}
-                </span>
-              </button>
+                  aria-label="Select Flooring Surface Zone"
+                >
+                  <div
+                    style={{
+                      width: '8px',
+                      height: '8px',
+                      borderRadius: '50%',
+                      backgroundColor: activeZone === 'floor' ? '#FFFFFF' : 'var(--color-bronze)',
+                      animation: 'twBeaconPulse 2s infinite'
+                    }}
+                  />
+                  <span style={{ fontSize: '0.75rem', fontWeight: 600 }}>
+                    Flooring: {selectedFloorProduct.name.split(' ')[0]}
+                  </span>
+                </button>
+              </div>
 
-              {/* Interactive Hotspot 2: Wall Pin */}
-              <button
-                type="button"
-                onClick={() => setActiveZone('wall')}
+              {/* Interactive Hotspot 2: Wall Pin with Sonar Radar Wave */}
+              <div
                 style={{
                   position: 'absolute',
                   left: `${activeRoom.wallHotspot.x}%`,
                   top: `${activeRoom.wallHotspot.y}%`,
                   transform: 'translate(-50%, -50%)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.5rem',
-                  padding: '0.45rem 0.85rem',
-                  borderRadius: 'var(--radius-pill)',
-                  backgroundColor: activeZone === 'wall' ? 'var(--color-bronze)' : 'rgba(20, 19, 18, 0.85)',
-                  color: '#FFFFFF',
-                  border: activeZone === 'wall' ? '2px solid #FFFFFF' : '1px solid rgba(255, 255, 255, 0.25)',
-                  boxShadow: '0 8px 24px rgba(0, 0, 0, 0.45)',
-                  backdropFilter: 'blur(8px)',
-                  cursor: 'pointer',
-                  zIndex: 10,
-                  transition: 'all var(--transition-fast)'
+                  zIndex: 10
                 }}
-                aria-label="Select Wall Surface Zone"
               >
-                <div
+                <div className="tw-hotspot-ripple" />
+                <button
+                  type="button"
+                  onClick={() => setActiveZone('wall')}
                   style={{
-                    width: '8px',
-                    height: '8px',
-                    borderRadius: '50%',
-                    backgroundColor: activeZone === 'wall' ? '#FFFFFF' : 'var(--color-bronze)'
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.5rem',
+                    padding: '0.45rem 0.85rem',
+                    borderRadius: 'var(--radius-pill)',
+                    backgroundColor: activeZone === 'wall' ? 'var(--color-bronze)' : 'rgba(20, 19, 18, 0.85)',
+                    color: '#FFFFFF',
+                    border: activeZone === 'wall' ? '2px solid #FFFFFF' : '1px solid rgba(255, 255, 255, 0.25)',
+                    boxShadow: '0 8px 24px rgba(0, 0, 0, 0.45)',
+                    backdropFilter: 'blur(8px)',
+                    cursor: 'pointer',
+                    transition: 'all var(--transition-fast)'
                   }}
-                />
-                <span style={{ fontSize: '0.75rem', fontWeight: 600 }}>
-                  Wall: {selectedWallProduct.name.split(' ')[0]}
-                </span>
-              </button>
+                  aria-label="Select Wall Surface Zone"
+                >
+                  <div
+                    style={{
+                      width: '8px',
+                      height: '8px',
+                      borderRadius: '50%',
+                      backgroundColor: activeZone === 'wall' ? '#FFFFFF' : 'var(--color-bronze)',
+                      animation: 'twBeaconPulse 2s infinite'
+                    }}
+                  />
+                  <span style={{ fontSize: '0.75rem', fontWeight: 600 }}>
+                    Wall: {selectedWallProduct.name.split(' ')[0]}
+                  </span>
+                </button>
+              </div>
 
               {/* Bottom Surface Badge Strip */}
               <div

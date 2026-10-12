@@ -27,7 +27,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenEnquiry }) => {
     }
   }, [mobileMenuOpen]);
 
-  const navLinks = [
+  // Full navigation links for mobile drawer
+  const allNavLinks = [
     { label: 'Home', href: '#' },
     { label: 'Collections', href: '#collections' },
     { label: 'Room Studio', href: '#room-previewer' },
@@ -36,6 +37,16 @@ export const Header: React.FC<HeaderProps> = ({ onOpenEnquiry }) => {
     { label: 'Finishes', href: '#finishes' },
     { label: 'Showcase', href: '#showcase' },
     { label: 'Why Us', href: '#why-us' },
+    { label: 'Showrooms', href: '#showrooms' },
+    { label: 'Contact', href: '#contact' }
+  ];
+
+  // Curated, uncluttered primary anchors for desktop navigation
+  const desktopNavLinks = [
+    { label: 'Collections', href: '#collections' },
+    { label: 'Room Studio', href: '#room-previewer' },
+    { label: 'Estimator', href: '#calculator' },
+    { label: 'Showcase', href: '#showcase' },
     { label: 'Showrooms', href: '#showrooms' },
     { label: 'Contact', href: '#contact' }
   ];
@@ -64,17 +75,20 @@ export const Header: React.FC<HeaderProps> = ({ onOpenEnquiry }) => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            height: '76px'
+            height: '76px',
+            gap: '1rem'
           }}
         >
-          {/* Brand Logo & Wordmark */}
+          {/* Brand Logo & Wordmark - Protected flexShrink: 0 */}
           <a
             href="#"
             style={{
               display: 'flex',
               alignItems: 'center',
               gap: '0.875rem',
-              textDecoration: 'none'
+              textDecoration: 'none',
+              flexShrink: 0,
+              minWidth: 'max-content'
             }}
             aria-label="Tile World Vijayawada - Home"
           >
@@ -115,31 +129,30 @@ export const Header: React.FC<HeaderProps> = ({ onOpenEnquiry }) => {
             </div>
           </a>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation with Animated Micro-Interaction */}
           <nav
             style={{
               display: 'flex',
               alignItems: 'center',
-              gap: '1.75rem'
+              gap: 'clamp(0.75rem, 1.4vw, 1.5rem)',
+              flexShrink: 1,
+              margin: '0 0.5rem'
             }}
             className="tw-desktop-nav"
             aria-label="Primary Navigation"
           >
-            {navLinks.map((link) => (
+            {desktopNavLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
+                className="tw-nav-link-item"
                 style={{
                   fontSize: '0.875rem',
                   fontWeight: 500,
                   color: 'var(--color-text-muted)',
                   letterSpacing: '0.01em',
-                  transition: 'color var(--transition-fast)',
-                  position: 'relative',
-                  padding: '0.25rem 0'
+                  whiteSpace: 'nowrap'
                 }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-text-main)')}
-                onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--color-text-muted)')}
               >
                 {link.label}
               </a>
@@ -147,16 +160,17 @@ export const Header: React.FC<HeaderProps> = ({ onOpenEnquiry }) => {
           </nav>
 
           {/* Header Action Buttons */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.875rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexShrink: 0 }}>
             <a
               href={BUSINESS_INFO.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="tw-btn tw-btn-whatsapp tw-hide-mobile"
+              className="tw-btn tw-btn-whatsapp tw-hide-laptop"
               style={{
-                padding: '0.625rem 1.125rem',
+                padding: '0.625rem 1rem',
                 fontSize: '0.8125rem',
-                borderRadius: 'var(--radius-xs)'
+                borderRadius: 'var(--radius-xs)',
+                gap: '0.45rem'
               }}
               aria-label="Chat on WhatsApp with Tile World"
             >
@@ -168,17 +182,17 @@ export const Header: React.FC<HeaderProps> = ({ onOpenEnquiry }) => {
               onClick={() => onOpenEnquiry()}
               className="tw-btn tw-btn-primary"
               style={{
-                padding: '0.625rem 1.25rem',
+                padding: '0.625rem 1.125rem',
                 fontSize: '0.8125rem',
-                borderRadius: 'var(--radius-xs)'
+                borderRadius: 'var(--radius-xs)',
+                gap: '0.45rem'
               }}
               id="header-enquire-btn"
             >
               <span>Enquire Now</span>
               <ArrowUpRight size={14} />
             </button>
-
-            {/* Mobile Hamburger Toggle */}
+            {/* Mobile Hamburger Menu Toggle Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="tw-mobile-toggle"
@@ -279,7 +293,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenEnquiry }) => {
                 marginBottom: '2rem'
               }}
             >
-              {navLinks.map((link) => (
+              {allNavLinks.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
@@ -340,16 +354,18 @@ export const Header: React.FC<HeaderProps> = ({ onOpenEnquiry }) => {
         </div>
       )}
 
-      {/* Style for mobile nav toggle */}
+      {/* Responsive Breakpoints & Desktop Navigation Preservation */}
       <style>{`
-        @media (max-width: 960px) {
+        @media (max-width: 1080px) {
           .tw-desktop-nav {
             display: none !important;
           }
           .tw-mobile-toggle {
             display: inline-flex !important;
           }
-          .tw-hide-mobile {
+        }
+        @media (max-width: 1240px) {
+          .tw-hide-laptop {
             display: none !important;
           }
         }
