@@ -6,13 +6,13 @@ updated: 2026-10-12T22:04:00+05:30
 
 # Roadmap — Tile World Vijayawada
 
-> **Current Phase:** Phase 2 — Multi-Dimensional Collections Filter & Instant Search
+> **Current Phase:** Phase 3 — Architectural Surface Switcher (Room Previewer)
 > **Status:** planning
 
 ## Must-Haves (from SPEC.md)
 
 - [x] REQ-01: Interactive Tile Coverage & Box Estimator Calculator
-- [ ] REQ-02: Instant Tile Search & Dimension/Finish Filtering
+- [x] REQ-02: Instant Tile Search & Dimension/Finish Filtering
 - [x] REQ-03: Direct Transfer of Calculated Estimates to WhatsApp Inquiry
 - [ ] REQ-04: Surface Comparison / Room Preview Tool
 - [ ] REQ-05: Unit Verification Tests for Estimator Math & Form Validation
@@ -33,14 +33,14 @@ updated: 2026-10-12T22:04:00+05:30
 ---
 
 ### Phase 2: Multi-Dimensional Collections Filter & Instant Search
-**Status:** ⬜ Not Started
+**Status:** ✅ Complete
 **Objective:** Add instant keyword search and dimensional filtering (600x1200mm, 300x600mm, 75x300mm) alongside existing surface types.
 **Depends on:** Phase 1
 **Requirements:** REQ-02
 
 **Plans:**
-- [ ] Plan 2.1: Enhance `CollectionsGallery.tsx` with search input and dimension chips.
-- [ ] Plan 2.2: Add empty-state recovery and query string persistence.
+- [x] Plan 2.1: Enhance `CollectionsGallery.tsx` with search input and dimension chips.
+- [x] Plan 2.2: Add empty-state recovery and query string persistence.
 
 ---
 
