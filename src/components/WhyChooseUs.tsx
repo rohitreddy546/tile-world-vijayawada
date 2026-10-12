@@ -30,7 +30,7 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ onOpenEnquiry }) => {
   ];
 
   return (
-    <section id="why-us" className="tw-section" style={{ backgroundColor: 'var(--color-bg)' }}>
+    <section id="why-us" className="tw-section" style={{ backgroundColor: 'transparent' }}>
       <div className="tw-container">
         <div
           style={{

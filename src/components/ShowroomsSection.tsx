@@ -6,7 +6,7 @@ export const ShowroomsSection: React.FC = () => {
   const [selectedShowroom, setSelectedShowroom] = useState<Showroom>(SHOWROOMS[0]);
 
   return (
-    <section id="showrooms" className="tw-section" style={{ backgroundColor: 'var(--color-surface-subtle)' }}>
+    <section id="showrooms" className="tw-section" style={{ backgroundColor: 'rgba(15, 23, 42, 0.45)', backdropFilter: 'blur(10px)' }}>
       <div className="tw-container">
         {/* Section Header */}
         <div style={{ maxWidth: '720px', marginBottom: '3.5rem' }}>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { MessageSquare } from 'lucide-react';
 import { AnnouncementBar } from './components/AnnouncementBar';
 import { Header } from './components/Header';
+import { GlobalMotionCanvas } from './components/GlobalMotionCanvas';
 import { Hero } from './components/Hero';
 import { BrandTicker } from './components/BrandTicker';
 import { CinematicSlabScrubber } from './components/CinematicSlabScrubber';
@@ -50,7 +51,10 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', position: 'relative' }}>
+      {/* Whole Webapp GPU-Accelerated Architectural Motion Graphics Background */}
+      <GlobalMotionCanvas />
+
       {/* 1. Announcement Bar */}
       <AnnouncementBar />
 

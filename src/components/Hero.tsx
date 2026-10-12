@@ -1,6 +1,5 @@
 import React from 'react';
 import { ArrowDown, MapPin, Sparkles, Play } from 'lucide-react';
-import { HeroMotionCanvas } from './HeroMotionCanvas';
 
 interface HeroProps {
   onOpenEnquiry: () => void;
@@ -17,12 +16,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenEnquiry }) => {
         paddingTop: '3rem',
         paddingBottom: '4rem',
         overflow: 'hidden',
-        backgroundColor: 'var(--color-bg)'
+        backgroundColor: 'transparent'
       }}
       aria-label="Welcome to Tile World Vijayawada"
     >
-      {/* GPU-Accelerated Architectural Motion Graphics Background Animation */}
-      <HeroMotionCanvas />
 
       <div className="tw-container" style={{ position: 'relative', zIndex: 2 }}>
         <div

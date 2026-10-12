@@ -34,7 +34,7 @@ export const FinishesVideoSection: React.FC = () => {
   ];
 
   return (
-    <section id="finishes" className="tw-section" style={{ backgroundColor: 'var(--color-bg)' }}>
+    <section id="finishes" className="tw-section" style={{ backgroundColor: 'transparent' }}>
       <div className="tw-container">
         {/* Section Header */}
         <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 3.5rem' }}>

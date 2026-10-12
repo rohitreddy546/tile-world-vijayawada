@@ -8,7 +8,7 @@ interface EnquirySectionProps {
 
 export const EnquirySection: React.FC<EnquirySectionProps> = ({ onOpenEnquiry }) => {
   return (
-    <section id="contact" className="tw-section" style={{ backgroundColor: 'var(--color-bg)' }}>
+    <section id="contact" className="tw-section" style={{ backgroundColor: 'transparent' }}>
       <div className="tw-container">
         <div
           style={{

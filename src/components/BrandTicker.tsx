@@ -10,7 +10,8 @@ export const BrandTicker: React.FC = () => {
       style={{
         paddingTop: '2.5rem',
         paddingBottom: '3rem',
-        backgroundColor: 'var(--color-surface-subtle)',
+        backgroundColor: 'rgba(15, 23, 42, 0.45)',
+        backdropFilter: 'blur(10px)',
         borderTop: '1px solid var(--color-border)',
         borderBottom: '1px solid var(--color-border)',
         overflow: 'hidden'

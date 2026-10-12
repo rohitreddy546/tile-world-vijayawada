@@ -153,7 +153,7 @@ export const CinematicSlabScrubber: React.FC<CinematicSlabScrubberProps> = ({ on
       id="cinematic-story"
       className="tw-section"
       style={{
-        backgroundColor: 'var(--color-bg)',
+        backgroundColor: 'transparent',
         position: 'relative',
         overflow: 'hidden',
         borderTop: '1px solid var(--color-border)',

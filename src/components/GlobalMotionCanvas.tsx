@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 
-interface HeroMotionCanvasProps {
+interface GlobalMotionCanvasProps {
   className?: string;
 }
 
@@ -37,7 +37,7 @@ interface FluidOrb {
   speed: number;
 }
 
-export const HeroMotionCanvas: React.FC<HeroMotionCanvasProps> = ({ className }) => {
+export const GlobalMotionCanvas: React.FC<GlobalMotionCanvasProps> = ({ className }) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
@@ -48,8 +48,8 @@ export const HeroMotionCanvas: React.FC<HeroMotionCanvasProps> = ({ className })
     if (!ctx) return;
 
     let animationFrameId: number;
-    let width = (canvas.width = canvas.offsetWidth);
-    let height = (canvas.height = canvas.offsetHeight);
+    let width = (canvas.width = window.innerWidth);
+    let height = (canvas.height = window.innerHeight);
 
     const checkReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (checkReducedMotion) return;
@@ -60,91 +60,100 @@ export const HeroMotionCanvas: React.FC<HeroMotionCanvasProps> = ({ className })
     canvas.height = height * dpr;
     ctx.scale(dpr, dpr);
 
-    // Mouse coordinates tracking
-    let mouseX = width * 0.45;
-    let mouseY = height * 0.45;
+    // Mouse coordinates tracking across whole window
+    let mouseX = width * 0.5;
+    let mouseY = height * 0.4;
     let targetMouseX = mouseX;
     let targetMouseY = mouseY;
 
     const handleMouseMove = (e: MouseEvent) => {
-      const rect = canvas.getBoundingClientRect();
-      targetMouseX = e.clientX - rect.left;
-      targetMouseY = e.clientY - rect.top;
+      targetMouseX = e.clientX;
+      targetMouseY = e.clientY;
     };
 
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
 
-    // Grid sizing representing 600×1200 tile ratio
-    const gridTileW = 72;
-    const gridTileH = 144;
+    // Scroll parallax tracking
+    let currentScrollY = window.scrollY;
+    let targetScrollY = currentScrollY;
 
-    // Particles (crystalline marble motes)
-    const particleCount = 45;
+    const handleScroll = () => {
+      targetScrollY = window.scrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    // Grid sizing representing 600×1200 architectural tile ratio
+    const gridTileW = 80;
+    const gridTileH = 160;
+
+    // Crystalline marble motes
+    const particleCount = 55;
     const particles: Particle[] = [];
     for (let i = 0; i < particleCount; i++) {
       particles.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.25,
-        vy: -0.2 - Math.random() * 0.4,
-        size: 1 + Math.random() * 2,
-        alpha: Math.random() * 0.5,
+        vx: (Math.random() - 0.5) * 0.28,
+        vy: -0.25 - Math.random() * 0.45,
+        size: 1 + Math.random() * 2.2,
+        alpha: Math.random() * 0.6,
         maxAlpha: 0.35 + Math.random() * 0.55,
-        pulseSpeed: 0.015 + Math.random() * 0.02
+        pulseSpeed: 0.012 + Math.random() * 0.022
       });
     }
 
     // Grid light pulses
     const pulses: GridPulse[] = [];
-    const pulseCount = 7;
+    const pulseCount = 8;
     for (let i = 0; i < pulseCount; i++) {
       pulses.push({
         axis: Math.random() > 0.5 ? 'x' : 'y',
-        index: Math.floor(Math.random() * 20),
+        index: Math.floor(Math.random() * 24),
         pos: Math.random() * (Math.random() > 0.5 ? width : height),
-        speed: 1.2 + Math.random() * 1.8,
-        length: 80 + Math.random() * 120,
-        alpha: 0.3 + Math.random() * 0.5
+        speed: 1.4 + Math.random() * 2.2,
+        length: 90 + Math.random() * 140,
+        alpha: 0.35 + Math.random() * 0.55
       });
     }
 
-    // Fluid Orbs for Ambient Aurora Mesh
+    // Ambient Aurora Fluid Mesh Orbs
     const orbs: FluidOrb[] = [
       {
-        x: width * 0.2,
-        y: height * 0.35,
-        baseX: width * 0.2,
-        baseY: height * 0.35,
-        radius: Math.min(width, height) * 0.45,
-        color: 'rgba(59, 130, 246, 0.16)', // Sapphire Blue
+        x: width * 0.22,
+        y: height * 0.3,
+        baseX: width * 0.22,
+        baseY: height * 0.3,
+        radius: Math.min(width, height) * 0.5,
+        color: 'rgba(59, 130, 246, 0.16)', // Electric Sapphire
         vx: 0,
         vy: 0,
         angle: 0,
-        speed: 0.006
+        speed: 0.005
       },
       {
-        x: width * 0.75,
-        y: height * 0.5,
-        baseX: width * 0.75,
-        baseY: height * 0.5,
-        radius: Math.min(width, height) * 0.5,
+        x: width * 0.8,
+        y: height * 0.55,
+        baseX: width * 0.8,
+        baseY: height * 0.55,
+        radius: Math.min(width, height) * 0.55,
         color: 'rgba(37, 99, 235, 0.14)', // Cobalt Navy
         vx: 0,
         vy: 0,
         angle: Math.PI,
-        speed: 0.005
+        speed: 0.004
       },
       {
-        x: width * 0.5,
-        y: height * 0.8,
-        baseX: width * 0.5,
-        baseY: height * 0.8,
-        radius: Math.min(width, height) * 0.38,
-        color: 'rgba(96, 165, 250, 0.10)', // Azure Glaze
+        x: width * 0.45,
+        y: height * 0.85,
+        baseX: width * 0.45,
+        baseY: height * 0.85,
+        radius: Math.min(width, height) * 0.42,
+        color: 'rgba(96, 165, 250, 0.11)', // Azure Glaze
         vx: 0,
         vy: 0,
         angle: Math.PI / 2,
-        speed: 0.008
+        speed: 0.007
       }
     ];
 
@@ -153,8 +162,8 @@ export const HeroMotionCanvas: React.FC<HeroMotionCanvasProps> = ({ className })
       if (resizeTimer) clearTimeout(resizeTimer);
       resizeTimer = window.setTimeout(() => {
         if (!canvas) return;
-        width = canvas.offsetWidth;
-        height = canvas.offsetHeight;
+        width = window.innerWidth;
+        height = window.innerHeight;
         canvas.width = width * dpr;
         canvas.height = height * dpr;
         ctx.scale(dpr, dpr);
@@ -168,16 +177,25 @@ export const HeroMotionCanvas: React.FC<HeroMotionCanvasProps> = ({ className })
       animationFrameId = requestAnimationFrame(render);
 
       // Smooth mouse damping
-      mouseX += (targetMouseX - mouseX) * 0.06;
-      mouseY += (targetMouseY - mouseY) * 0.06;
+      mouseX += (targetMouseX - mouseX) * 0.055;
+      mouseY += (targetMouseY - mouseY) * 0.055;
+
+      // Smooth scroll parallax damping
+      currentScrollY += (targetScrollY - currentScrollY) * 0.08;
+      const scrollOffset = (currentScrollY * 0.18) % gridTileH;
 
       ctx.clearRect(0, 0, width, height);
+
+      // Check current theme
+      const isLightMode = document.documentElement.getAttribute('data-theme') === 'light';
+      const baseLineAlpha = isLightMode ? 0.04 : 0.038;
+      const baseLineColor = isLightMode ? '29, 78, 216' : '255, 255, 255';
 
       // 1. Draw Fluid Aurora Mesh Gradients
       orbs.forEach((orb) => {
         orb.angle += orb.speed;
-        orb.x = orb.baseX + Math.sin(orb.angle) * 70;
-        orb.y = orb.baseY + Math.cos(orb.angle * 0.8) * 50;
+        orb.x = orb.baseX + Math.sin(orb.angle) * 80;
+        orb.y = orb.baseY + Math.cos(orb.angle * 0.75) * 60;
 
         const grad = ctx.createRadialGradient(orb.x, orb.y, 0, orb.x, orb.y, orb.radius);
         grad.addColorStop(0, orb.color);
@@ -190,57 +208,58 @@ export const HeroMotionCanvas: React.FC<HeroMotionCanvasProps> = ({ className })
       });
 
       // 2. Interactive Cursor Lighting Spotlight
-      const mouseGrad = ctx.createRadialGradient(mouseX, mouseY, 0, mouseX, mouseY, 280);
-      mouseGrad.addColorStop(0, 'rgba(59, 130, 246, 0.12)');
-      mouseGrad.addColorStop(0.5, 'rgba(37, 99, 235, 0.04)');
+      const mouseGrad = ctx.createRadialGradient(mouseX, mouseY, 0, mouseX, mouseY, 320);
+      mouseGrad.addColorStop(0, 'rgba(59, 130, 246, 0.14)');
+      mouseGrad.addColorStop(0.5, 'rgba(37, 99, 235, 0.05)');
       mouseGrad.addColorStop(1, 'rgba(7, 10, 18, 0)');
       ctx.fillStyle = mouseGrad;
       ctx.beginPath();
-      ctx.arc(mouseX, mouseY, 280, 0, Math.PI * 2);
+      ctx.arc(mouseX, mouseY, 320, 0, Math.PI * 2);
       ctx.fill();
 
       // 3. Draw Architectural Tile Layout Grid Lines
       ctx.lineWidth = 1;
-      
-      // Vertical grid lines
       const cols = Math.ceil(width / gridTileW) + 1;
-      const rows = Math.ceil(height / gridTileH) + 1;
+      const rows = Math.ceil(height / gridTileH) + 2;
 
+      // Vertical grid lines
       for (let c = 0; c < cols; c++) {
         const x = c * gridTileW;
         const distToMouse = Math.abs(x - mouseX);
-        const mouseProximity = Math.max(0, 1 - distToMouse / 260);
-        const alpha = 0.035 + mouseProximity * 0.08;
+        const mouseProximity = Math.max(0, 1 - distToMouse / 280);
+        const alpha = baseLineAlpha + mouseProximity * 0.09;
 
-        ctx.strokeStyle = `rgba(255, 255, 255, ${alpha})`;
+        ctx.strokeStyle = `rgba(${baseLineColor}, ${alpha})`;
         ctx.beginPath();
         ctx.moveTo(x, 0);
         ctx.lineTo(x, height);
         ctx.stroke();
       }
 
-      // Horizontal grid lines
+      // Horizontal grid lines with scroll parallax
       for (let r = 0; r < rows; r++) {
-        const y = r * gridTileH;
+        const y = r * gridTileH - scrollOffset;
+        if (y < -10 || y > height + 10) continue;
         const distToMouse = Math.abs(y - mouseY);
-        const mouseProximity = Math.max(0, 1 - distToMouse / 260);
-        const alpha = 0.035 + mouseProximity * 0.08;
+        const mouseProximity = Math.max(0, 1 - distToMouse / 280);
+        const alpha = baseLineAlpha + mouseProximity * 0.09;
 
-        ctx.strokeStyle = `rgba(255, 255, 255, ${alpha})`;
+        ctx.strokeStyle = `rgba(${baseLineColor}, ${alpha})`;
         ctx.beginPath();
         ctx.moveTo(0, y);
         ctx.lineTo(width, y);
         ctx.stroke();
       }
 
-      // 4. Subtle Tile Joint Intersection Crosshairs (+)
+      // 4. Tile Joint Intersection Crosshairs (+)
       for (let c = 1; c < cols - 1; c += 2) {
-        for (let r = 1; r < rows - 1; r += 2) {
+        for (let r = 0; r < rows; r += 2) {
           const ix = c * gridTileW;
-          const iy = r * gridTileH;
+          const iy = r * gridTileH - scrollOffset;
+          if (iy < -10 || iy > height + 10) continue;
           const dist = Math.hypot(ix - mouseX, iy - mouseY);
-          if (dist < 320) {
-            const crossAlpha = Math.max(0, (1 - dist / 320) * 0.28);
+          if (dist < 340) {
+            const crossAlpha = Math.max(0, (1 - dist / 340) * 0.32);
             ctx.strokeStyle = `rgba(96, 165, 250, ${crossAlpha})`;
             ctx.beginPath();
             ctx.moveTo(ix - 5, iy);
@@ -259,7 +278,7 @@ export const HeroMotionCanvas: React.FC<HeroMotionCanvasProps> = ({ className })
         if (p.pos > maxBound + p.length) {
           p.pos = -p.length;
           p.index = Math.floor(Math.random() * (p.axis === 'x' ? cols : rows));
-          p.speed = 1.2 + Math.random() * 2.2;
+          p.speed = 1.4 + Math.random() * 2.2;
         }
 
         ctx.lineWidth = 1.5;
@@ -268,27 +287,29 @@ export const HeroMotionCanvas: React.FC<HeroMotionCanvasProps> = ({ className })
           const pulseGrad = ctx.createLinearGradient(gx, p.pos - p.length, gx, p.pos);
           pulseGrad.addColorStop(0, 'rgba(59, 130, 246, 0)');
           pulseGrad.addColorStop(0.8, `rgba(96, 165, 250, ${p.alpha})`);
-          pulseGrad.addColorStop(1, 'rgba(255, 255, 255, 0.9)');
+          pulseGrad.addColorStop(1, 'rgba(255, 255, 255, 0.95)');
           ctx.strokeStyle = pulseGrad;
           ctx.beginPath();
           ctx.moveTo(gx, Math.max(0, p.pos - p.length));
           ctx.lineTo(gx, Math.min(height, p.pos));
           ctx.stroke();
         } else {
-          const gy = p.index * gridTileH;
-          const pulseGrad = ctx.createLinearGradient(p.pos - p.length, gy, p.pos, gy);
-          pulseGrad.addColorStop(0, 'rgba(59, 130, 246, 0)');
-          pulseGrad.addColorStop(0.8, `rgba(96, 165, 250, ${p.alpha})`);
-          pulseGrad.addColorStop(1, 'rgba(255, 255, 255, 0.9)');
-          ctx.strokeStyle = pulseGrad;
-          ctx.beginPath();
-          ctx.moveTo(Math.max(0, p.pos - p.length), gy);
-          ctx.lineTo(Math.min(width, p.pos), gy);
-          ctx.stroke();
+          const gy = p.index * gridTileH - scrollOffset;
+          if (gy >= 0 && gy <= height) {
+            const pulseGrad = ctx.createLinearGradient(p.pos - p.length, gy, p.pos, gy);
+            pulseGrad.addColorStop(0, 'rgba(59, 130, 246, 0)');
+            pulseGrad.addColorStop(0.8, `rgba(96, 165, 250, ${p.alpha})`);
+            pulseGrad.addColorStop(1, 'rgba(255, 255, 255, 0.95)');
+            ctx.strokeStyle = pulseGrad;
+            ctx.beginPath();
+            ctx.moveTo(Math.max(0, p.pos - p.length), gy);
+            ctx.lineTo(Math.min(width, p.pos), gy);
+            ctx.stroke();
+          }
         }
       });
 
-      // 6. Draw Crystalline Micro-Particles (Marble Dust)
+      // 6. Draw Crystalline Micro-Particles (Marble Motes)
       particles.forEach((p) => {
         p.x += p.vx;
         p.y += p.vy;
@@ -303,17 +324,15 @@ export const HeroMotionCanvas: React.FC<HeroMotionCanvasProps> = ({ className })
 
         const currentAlpha = Math.abs(Math.sin(p.alpha)) * p.maxAlpha;
 
-        // Subtle soft glow around particles
         ctx.fillStyle = `rgba(248, 250, 252, ${currentAlpha})`;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         ctx.fill();
 
-        // Blue glow aura for larger particles
         if (p.size > 1.8) {
-          ctx.fillStyle = `rgba(59, 130, 246, ${currentAlpha * 0.4})`;
+          ctx.fillStyle = `rgba(59, 130, 246, ${currentAlpha * 0.45})`;
           ctx.beginPath();
-          ctx.arc(p.x, p.y, p.size * 2.4, 0, Math.PI * 2);
+          ctx.arc(p.x, p.y, p.size * 2.2, 0, Math.PI * 2);
           ctx.fill();
         }
       });
@@ -324,6 +343,7 @@ export const HeroMotionCanvas: React.FC<HeroMotionCanvasProps> = ({ className })
     return () => {
       cancelAnimationFrame(animationFrameId);
       window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleResize);
       if (resizeTimer) clearTimeout(resizeTimer);
     };
@@ -334,12 +354,12 @@ export const HeroMotionCanvas: React.FC<HeroMotionCanvasProps> = ({ className })
       ref={canvasRef}
       className={className}
       style={{
-        position: 'absolute',
+        position: 'fixed',
         inset: 0,
-        width: '100%',
-        height: '100%',
+        width: '100vw',
+        height: '100vh',
         pointerEvents: 'none',
-        zIndex: 1
+        zIndex: 0
       }}
       aria-hidden="true"
     />

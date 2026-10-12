@@ -8,7 +8,7 @@ interface CategoriesSectionProps {
 
 export const CategoriesSection: React.FC<CategoriesSectionProps> = ({ onSelectCategory }) => {
   return (
-    <section id="categories" className="tw-section" style={{ backgroundColor: 'var(--color-bg)' }}>
+    <section id="categories" className="tw-section" style={{ backgroundColor: 'transparent' }}>
       <div className="tw-container">
         {/* Editorial Section Header */}
         <div style={{ maxWidth: '720px', marginBottom: '3.5rem' }}>

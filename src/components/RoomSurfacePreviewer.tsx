@@ -139,7 +139,8 @@ export const RoomSurfacePreviewer: React.FC<RoomSurfacePreviewerProps> = ({ onOp
       id="room-previewer" 
       className="tw-section" 
       style={{ 
-        backgroundColor: 'var(--color-dark-bg)', 
+        backgroundColor: 'rgba(4, 6, 11, 0.75)',
+        backdropFilter: 'blur(12px)',
         color: '#FFFFFF',
         position: 'relative',
         overflow: 'hidden'
