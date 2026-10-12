@@ -91,7 +91,7 @@ export const Lightbox: React.FC<LightboxProps> = ({
           >
             {currentImage.category}
           </span>
-          <span style={{ fontSize: '0.875rem', color: '#D4CEBE' }}>
+          <span style={{ fontSize: '0.875rem', color: '#E2E8F0' }}>
             {currentIndex + 1} / {images.length}
           </span>
         </div>
@@ -215,7 +215,7 @@ export const Lightbox: React.FC<LightboxProps> = ({
           >
             {currentImage.title}
           </h4>
-          <p style={{ fontSize: '0.875rem', color: '#B5AFA6', margin: 0 }}>
+          <p style={{ fontSize: '0.875rem', color: '#94A3B8', margin: 0 }}>
             {currentImage.subtitle}
           </p>
         </div>

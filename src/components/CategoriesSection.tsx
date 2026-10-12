@@ -95,7 +95,7 @@ export const CategoriesSection: React.FC<CategoriesSectionProps> = ({ onSelectCa
                       top: '1rem',
                       left: '1rem',
                       padding: '0.35rem 0.75rem',
-                      backgroundColor: 'rgba(20, 19, 18, 0.75)',
+                      backgroundColor: 'rgba(8, 12, 22, 0.80)',
                       backdropFilter: 'blur(6px)',
                       color: '#FFFFFF',
                       fontSize: '0.6875rem',

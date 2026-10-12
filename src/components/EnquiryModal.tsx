@@ -86,7 +86,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
         position: 'fixed',
         inset: 0,
         zIndex: 'var(--z-modal)',
-        backgroundColor: 'rgba(20, 19, 18, 0.75)',
+        backgroundColor: 'rgba(8, 12, 22, 0.75)',
         backdropFilter: 'blur(8px)',
         display: 'flex',
         alignItems: 'center',

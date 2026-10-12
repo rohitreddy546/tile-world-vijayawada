@@ -333,7 +333,7 @@ export const CollectionsGallery: React.FC<CollectionsGalleryProps> = ({ onOpenCo
                       top: '0.875rem',
                       left: '0.875rem',
                       padding: '0.3rem 0.65rem',
-                      backgroundColor: 'rgba(20, 19, 18, 0.75)',
+                      backgroundColor: 'rgba(8, 12, 22, 0.80)',
                       backdropFilter: 'blur(4px)',
                       color: '#FFFFFF',
                       fontSize: '0.6875rem',

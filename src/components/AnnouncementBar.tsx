@@ -27,19 +27,19 @@ export const AnnouncementBar: React.FC = () => {
       }}>
         {/* Left: Location & Heritage */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', flexWrap: 'wrap' }}>
-          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.375rem', color: '#D4CEBE' }}>
-            <MapPin size={13} color="var(--color-bronze)" />
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.375rem', color: '#E2E8F0' }}>
+            <MapPin size={13} color="var(--color-blue)" />
             <span>Governorpet &bull; Chilakaluripeta, AP</span>
           </span>
-          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.375rem', color: '#9E978C' }} className="tw-hide-mobile">
-            <Clock size={13} color="var(--color-bronze)" />
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.375rem', color: '#94A3B8' }} className="tw-hide-mobile">
+            <Clock size={13} color="var(--color-blue)" />
             <span>Mon–Sat: 9:00 AM – 9:00 PM</span>
           </span>
         </div>
 
         {/* Right: Verified Direct Contact */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
-          <span style={{ color: '#D4CEBE', fontSize: '0.75rem', letterSpacing: '0.04em' }} className="tw-hide-mobile">
+          <span style={{ color: '#E2E8F0', fontSize: '0.75rem', letterSpacing: '0.04em' }} className="tw-hide-mobile">
             Trusted in Vijayawada Since 2004
           </span>
           <a
@@ -55,7 +55,7 @@ export const AnnouncementBar: React.FC = () => {
             }}
             aria-label={`Call Tile World Showroom at ${BUSINESS_INFO.primaryPhoneDisplay}`}
           >
-            <Phone size={13} color="var(--color-bronze)" />
+            <Phone size={13} color="var(--color-blue)" />
             <span>{BUSINESS_INFO.primaryPhoneDisplay}</span>
           </a>
         </div>

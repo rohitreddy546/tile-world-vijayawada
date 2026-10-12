@@ -101,7 +101,7 @@ export const ShowroomsSection: React.FC = () => {
                       bottom: '1rem',
                       left: '1rem',
                       padding: '0.25rem 0.625rem',
-                      backgroundColor: 'rgba(20, 19, 18, 0.75)',
+                      backgroundColor: 'rgba(8, 12, 22, 0.80)',
                       color: '#FFFFFF',
                       fontSize: '0.75rem',
                       borderRadius: 'var(--radius-xs)'

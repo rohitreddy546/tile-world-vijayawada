@@ -94,7 +94,7 @@ export const ShowcaseGallery: React.FC<ShowcaseGalleryProps> = ({ onOpenConsulta
                   backgroundColor: 'var(--color-surface)',
                   borderRadius: 'var(--radius-md)',
                   border: '1px solid var(--color-border)',
-                  boxShadow: '0 16px 44px rgba(20, 19, 18, 0.12)',
+                  boxShadow: '0 16px 44px rgba(8, 12, 22, 0.08)',
                   overflow: 'hidden',
                   transition: 'transform 240ms ease, box-shadow 240ms ease'
                 }}
@@ -192,7 +192,7 @@ export const ShowcaseGallery: React.FC<ShowcaseGalleryProps> = ({ onOpenConsulta
                       style={{
                         position: 'absolute',
                         inset: 0,
-                        background: 'linear-gradient(to top, rgba(20, 19, 18, 0.45) 0%, rgba(20, 19, 18, 0) 40%)'
+                        background: 'linear-gradient(to top, rgba(8, 12, 22, 0.5) 0%, rgba(8, 12, 22, 0) 40%)'
                       }}
                     />
 
@@ -404,7 +404,7 @@ export const ShowcaseGallery: React.FC<ShowcaseGalleryProps> = ({ onOpenConsulta
                     style={{
                       position: 'absolute',
                       inset: 0,
-                      background: 'linear-gradient(to top, rgba(20, 19, 18, 0.75) 0%, rgba(20, 19, 18, 0) 55%)',
+                      background: 'linear-gradient(to top, rgba(8, 12, 22, 0.8) 0%, rgba(8, 12, 22, 0) 55%)',
                       display: 'flex',
                       flexDirection: 'column',
                       justifyContent: 'flex-end',
@@ -437,7 +437,7 @@ export const ShowcaseGallery: React.FC<ShowcaseGalleryProps> = ({ onOpenConsulta
       {/* Styles for Stacking Cards & Hover Zooms */}
       <style>{`
         .tw-stack-card:hover {
-          box-shadow: 0 24px 50px rgba(20, 19, 18, 0.16) !important;
+          box-shadow: 0 24px 50px rgba(8, 12, 22, 0.14) !important;
         }
         .tw-stack-card:hover .tw-stack-img {
           transform: scale(1.04);

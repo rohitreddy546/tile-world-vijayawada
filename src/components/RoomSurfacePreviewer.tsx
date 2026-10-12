@@ -139,8 +139,8 @@ export const RoomSurfacePreviewer: React.FC<RoomSurfacePreviewerProps> = ({ onOp
       id="room-previewer" 
       className="tw-section" 
       style={{ 
-        backgroundColor: '#161514', 
-        color: '#FBF9F5',
+        backgroundColor: 'var(--color-dark-bg)', 
+        color: '#FFFFFF',
         position: 'relative',
         overflow: 'hidden'
       }}
@@ -155,7 +155,7 @@ export const RoomSurfacePreviewer: React.FC<RoomSurfacePreviewerProps> = ({ onOp
           width: '650px',
           height: '650px',
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(160, 120, 73, 0.12) 0%, rgba(0, 0, 0, 0) 70%)',
+          background: 'radial-gradient(circle, rgba(37, 99, 235, 0.16) 0%, rgba(0, 0, 0, 0) 70%)',
           pointerEvents: 'none'
         }}
       />
@@ -163,14 +163,14 @@ export const RoomSurfacePreviewer: React.FC<RoomSurfacePreviewerProps> = ({ onOp
       <div className="tw-container" style={{ position: 'relative', zIndex: 1 }}>
         {/* Section Header */}
         <div style={{ maxWidth: '780px', marginBottom: '3rem' }}>
-          <div className="tw-eyebrow" style={{ color: 'var(--color-bronze-light)' }}>
-            <span className="tw-eyebrow-dot" style={{ backgroundColor: 'var(--color-bronze-light)' }}></span>
+          <div className="tw-eyebrow" style={{ color: 'var(--color-blue-light)' }}>
+            <span className="tw-eyebrow-dot" style={{ backgroundColor: 'var(--color-blue)' }}></span>
             <span>Interactive Visualizer &bull; Architectural Surface Studio</span>
           </div>
-          <h2 className="tw-section-title" style={{ color: '#FBF9F5', fontSize: 'clamp(2.15rem, 3.8vw, 3.25rem)' }}>
+          <h2 className="tw-section-title" style={{ color: '#FFFFFF', fontSize: 'clamp(2.15rem, 3.8vw, 3.25rem)' }}>
             Visualise Tiles in Architectural Spaces
           </h2>
-          <p className="tw-section-subtitle" style={{ color: 'rgba(251, 249, 245, 0.72)', fontSize: '1.0625rem' }}>
+          <p className="tw-section-subtitle" style={{ color: 'rgba(255, 255, 255, 0.75)', fontSize: '1.0625rem' }}>
             Switch room environments, test contrasting floor slabs with designer wall highlighters, and test daylight vs warm showroom lighting before visiting our Vijayawada showrooms.
           </p>
         </div>
@@ -207,10 +207,10 @@ export const RoomSurfacePreviewer: React.FC<RoomSurfacePreviewerProps> = ({ onOp
                   fontWeight: 600,
                   whiteSpace: 'nowrap',
                   transition: 'all var(--transition-fast)',
-                  backgroundColor: isActive ? 'var(--color-bronze)' : 'rgba(255, 255, 255, 0.06)',
-                  color: isActive ? '#FFFFFF' : 'rgba(251, 249, 245, 0.8)',
-                  border: isActive ? '1px solid var(--color-bronze-light)' : '1px solid rgba(255, 255, 255, 0.1)',
-                  boxShadow: isActive ? '0 8px 20px rgba(160, 120, 73, 0.35)' : 'none'
+                  backgroundColor: isActive ? 'var(--color-blue)' : 'rgba(255, 255, 255, 0.06)',
+                  color: isActive ? '#FFFFFF' : 'rgba(255, 255, 255, 0.8)',
+                  border: isActive ? '1px solid var(--color-blue-subtle)' : '1px solid rgba(255, 255, 255, 0.1)',
+                  boxShadow: isActive ? '0 8px 20px rgba(37, 99, 235, 0.35)' : 'none'
                 }}
               >
                 <Compass size={16} />
@@ -235,7 +235,7 @@ export const RoomSurfacePreviewer: React.FC<RoomSurfacePreviewerProps> = ({ onOp
           {/* Left Column: Interactive Visualizer Canvas */}
           <div
             style={{
-              backgroundColor: '#1E1D1B',
+              backgroundColor: 'var(--color-dark-surface)',
               borderRadius: 'var(--radius-md)',
               border: '1px solid rgba(255, 255, 255, 0.12)',
               overflow: 'hidden',
@@ -257,10 +257,10 @@ export const RoomSurfacePreviewer: React.FC<RoomSurfacePreviewerProps> = ({ onOp
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <span style={{ fontSize: '0.75rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'rgba(251, 249, 245, 0.6)' }}>
+                <span style={{ fontSize: '0.75rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'rgba(255, 255, 255, 0.6)' }}>
                   Scene:
                 </span>
-                <span style={{ fontSize: '0.875rem', fontWeight: 700, color: '#FBF9F5' }}>
+                <span style={{ fontSize: '0.875rem', fontWeight: 700, color: '#FFFFFF' }}>
                   {activeRoom.name}
                 </span>
               </div>
@@ -361,7 +361,7 @@ export const RoomSurfacePreviewer: React.FC<RoomSurfacePreviewerProps> = ({ onOp
                 minHeight: '440px',
                 height: '480px',
                 overflow: 'hidden',
-                backgroundColor: '#0F0E0D'
+                backgroundColor: '#050811'
               }}
               className="tw-previewer-canvas"
             >
@@ -401,7 +401,7 @@ export const RoomSurfacePreviewer: React.FC<RoomSurfacePreviewerProps> = ({ onOp
                     borderLeft: '2px solid #FFFFFF',
                     overflow: 'hidden',
                     boxShadow: '-8px 0 24px rgba(0, 0, 0, 0.6)',
-                    backgroundColor: '#1E1D1B'
+                    backgroundColor: 'var(--color-dark-surface)'
                   }}
                 >
                   <img
@@ -419,14 +419,14 @@ export const RoomSurfacePreviewer: React.FC<RoomSurfacePreviewerProps> = ({ onOp
                       top: '1rem',
                       right: '1rem',
                       padding: '0.4rem 0.8rem',
-                      backgroundColor: 'rgba(20, 19, 18, 0.85)',
+                      backgroundColor: 'rgba(8, 12, 22, 0.90)',
                       backdropFilter: 'blur(8px)',
                       borderRadius: 'var(--radius-pill)',
                       fontSize: '0.6875rem',
                       fontWeight: 700,
                       letterSpacing: '0.06em',
                       textTransform: 'uppercase',
-                      color: 'var(--color-bronze-light)',
+                      color: 'var(--color-blue-light)',
                       border: '1px solid rgba(255, 255, 255, 0.15)'
                     }}
                   >
@@ -604,7 +604,7 @@ export const RoomSurfacePreviewer: React.FC<RoomSurfacePreviewerProps> = ({ onOp
           {/* Right Column: Surface Customizer & Swatch Deck */}
           <div
             style={{
-              backgroundColor: '#1E1D1B',
+              backgroundColor: 'var(--color-dark-surface)',
               borderRadius: 'var(--radius-md)',
               border: '1px solid rgba(255, 255, 255, 0.12)',
               padding: 'clamp(1.5rem, 2.5vw, 2rem)',
@@ -722,8 +722,8 @@ export const RoomSurfacePreviewer: React.FC<RoomSurfacePreviewerProps> = ({ onOp
                         height: '76px',
                         borderRadius: 'var(--radius-xs)',
                         overflow: 'hidden',
-                        border: isSelected ? '2px solid var(--color-bronze-light)' : '1px solid rgba(255, 255, 255, 0.12)',
-                        boxShadow: isSelected ? '0 0 16px rgba(160, 120, 73, 0.6)' : 'none',
+                        border: isSelected ? '2px solid var(--color-blue)' : '1px solid rgba(255, 255, 255, 0.12)',
+                        boxShadow: isSelected ? '0 0 16px rgba(37, 99, 235, 0.6)' : 'none',
                         transition: 'transform var(--transition-fast), border-color var(--transition-fast)',
                         transform: isSelected ? 'scale(1.05)' : 'scale(1)',
                         padding: 0
@@ -744,7 +744,7 @@ export const RoomSurfacePreviewer: React.FC<RoomSurfacePreviewerProps> = ({ onOp
                           style={{
                             position: 'absolute',
                             inset: 0,
-                            backgroundColor: 'rgba(160, 120, 73, 0.3)',
+                            backgroundColor: 'rgba(37, 99, 235, 0.25)',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center'
@@ -755,7 +755,7 @@ export const RoomSurfacePreviewer: React.FC<RoomSurfacePreviewerProps> = ({ onOp
                               width: '20px',
                               height: '20px',
                               borderRadius: '50%',
-                              backgroundColor: 'var(--color-bronze)',
+                              backgroundColor: 'var(--color-blue)',
                               display: 'flex',
                               alignItems: 'center',
                               justifyContent: 'center',
@@ -797,7 +797,7 @@ export const RoomSurfacePreviewer: React.FC<RoomSurfacePreviewerProps> = ({ onOp
                   >
                     {activeSurfaceProduct.category}
                   </span>
-                  <h4 style={{ margin: 0, fontSize: '1.05rem', fontWeight: 600, color: '#FBF9F5' }}>
+                  <h4 style={{ margin: 0, fontSize: '1.05rem', fontWeight: 600, color: '#FFFFFF' }}>
                     {activeSurfaceProduct.name}
                   </h4>
                 </div>
@@ -812,7 +812,7 @@ export const RoomSurfacePreviewer: React.FC<RoomSurfacePreviewerProps> = ({ onOp
                     padding: '0.35rem 0.65rem',
                     borderRadius: 'var(--radius-xs)',
                     backgroundColor: 'rgba(255, 255, 255, 0.08)',
-                    color: '#FBF9F5',
+                    color: '#FFFFFF',
                     fontSize: '0.6875rem',
                     fontWeight: 600,
                     transition: 'all var(--transition-fast)'
@@ -834,20 +834,20 @@ export const RoomSurfacePreviewer: React.FC<RoomSurfacePreviewerProps> = ({ onOp
                 }}
               >
                 <div>
-                  <span style={{ display: 'block', color: 'rgba(251, 249, 245, 0.5)' }}>Format Dimension:</span>
-                  <span style={{ fontWeight: 600, color: '#FBF9F5' }}>{activeSurfaceProduct.size}</span>
+                  <span style={{ display: 'block', color: 'rgba(255, 255, 255, 0.5)' }}>Format Dimension:</span>
+                  <span style={{ fontWeight: 600, color: '#FFFFFF' }}>{activeSurfaceProduct.size}</span>
                 </div>
                 <div>
-                  <span style={{ display: 'block', color: 'rgba(251, 249, 245, 0.5)' }}>Surface Finish:</span>
-                  <span style={{ fontWeight: 600, color: '#FBF9F5' }}>{activeSurfaceProduct.finish}</span>
+                  <span style={{ display: 'block', color: 'rgba(255, 255, 255, 0.5)' }}>Surface Finish:</span>
+                  <span style={{ fontWeight: 600, color: '#FFFFFF' }}>{activeSurfaceProduct.finish}</span>
                 </div>
                 <div>
-                  <span style={{ display: 'block', color: 'rgba(251, 249, 245, 0.5)' }}>Body Material:</span>
-                  <span style={{ fontWeight: 600, color: '#FBF9F5' }}>{activeSurfaceProduct.material}</span>
+                  <span style={{ display: 'block', color: 'rgba(255, 255, 255, 0.5)' }}>Body Material:</span>
+                  <span style={{ fontWeight: 600, color: '#FFFFFF' }}>{activeSurfaceProduct.material}</span>
                 </div>
                 <div>
-                  <span style={{ display: 'block', color: 'rgba(251, 249, 245, 0.5)' }}>Recommended Application:</span>
-                  <span style={{ fontWeight: 600, color: '#FBF9F5' }}>{activeSurfaceProduct.ideal.split(',')[0]}</span>
+                  <span style={{ display: 'block', color: 'rgba(255, 255, 255, 0.5)' }}>Recommended Application:</span>
+                  <span style={{ fontWeight: 600, color: '#FFFFFF' }}>{activeSurfaceProduct.ideal.split(',')[0]}</span>
                 </div>
               </div>
             </div>
@@ -872,7 +872,7 @@ export const RoomSurfacePreviewer: React.FC<RoomSurfacePreviewerProps> = ({ onOp
                   className="tw-btn"
                   style={{
                     backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                    color: '#FBF9F5',
+                    color: '#FFFFFF',
                     border: '1px solid rgba(255, 255, 255, 0.15)',
                     padding: '0.75rem',
                     fontSize: '0.75rem',
@@ -889,7 +889,7 @@ export const RoomSurfacePreviewer: React.FC<RoomSurfacePreviewerProps> = ({ onOp
                   className="tw-btn"
                   style={{
                     backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                    color: '#FBF9F5',
+                    color: '#FFFFFF',
                     border: '1px solid rgba(255, 255, 255, 0.1)',
                     padding: '0.75rem',
                     fontSize: '0.75rem',

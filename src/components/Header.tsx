@@ -62,10 +62,10 @@ export const Header: React.FC<HeaderProps> = ({ onOpenEnquiry }) => {
           position: 'sticky',
           top: 0,
           zIndex: 'var(--z-header)',
-          backgroundColor: isScrolled ? 'rgba(251, 249, 245, 0.95)' : 'var(--color-bg)',
+          backgroundColor: isScrolled ? 'rgba(255, 255, 255, 0.96)' : 'var(--color-bg)',
           backdropFilter: isScrolled ? 'blur(12px)' : 'none',
           borderBottom: isScrolled ? '1px solid var(--color-border)' : '1px solid transparent',
-          boxShadow: isScrolled ? '0 4px 20px rgba(26, 25, 24, 0.05)' : 'none',
+          boxShadow: isScrolled ? '0 4px 20px rgba(10, 15, 29, 0.05)' : 'none',
           transition: 'all 240ms ease'
         }}
       >
@@ -120,7 +120,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenEnquiry }) => {
                   fontSize: '0.6875rem',
                   letterSpacing: '0.14em',
                   textTransform: 'uppercase',
-                  color: 'var(--color-bronze)',
+                  color: 'var(--color-blue)',
                   fontWeight: 600
                 }}
               >
@@ -223,7 +223,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenEnquiry }) => {
             position: 'fixed',
             inset: 0,
             zIndex: 'var(--z-drawer)',
-            backgroundColor: 'rgba(20, 19, 18, 0.65)',
+            backgroundColor: 'rgba(8, 12, 22, 0.70)',
             backdropFilter: 'blur(8px)',
             display: 'flex',
             justifyContent: 'flex-end',
@@ -268,7 +268,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenEnquiry }) => {
                 >
                   TILE WORLD
                 </span>
-                <span style={{ fontSize: '0.75rem', color: 'var(--color-bronze)' }}>
+                <span style={{ fontSize: '0.75rem', color: 'var(--color-blue)', fontWeight: 600 }}>
                   Vijayawada Showroom
                 </span>
               </div>

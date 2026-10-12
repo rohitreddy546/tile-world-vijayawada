@@ -1,33 +1,46 @@
 /* ==========================================================================
    TILE WORLD VIJAYAWADA — ARCHITECTURAL DESIGN SYSTEM & STYLESHEET
-   Curated palette: Warm Ivory, Limestone, Charcoal, Soft Greige, Bronze Accents
+   Curated palette: Royal Cobalt Blue, Gallery White, Obsidian Midnight Black
    ========================================================================== */
 
 :root {
   /* Architectural Color Tokens */
-  --color-bg: #FBF9F5;              /* Luminous Warm Ivory */
+  --color-bg: #FFFFFF;              /* Pure Gallery White */
   --color-surface: #FFFFFF;         /* Crisp White Tile Surface */
-  --color-surface-subtle: #F5F1E9;  /* Muted Limestone Elevation */
-  --color-surface-sunken: #EFE9DE;  /* Deep Warm Sand */
+  --color-surface-subtle: #F8FAFC;  /* Porcelain Slate Elevation */
+  --color-surface-sunken: #F1F5F9;  /* Cool Architectural Chalk */
   
-  --color-text-main: #1A1918;       /* Deep Charcoal Ink */
-  --color-text-muted: #5C5852;      /* Architectural Greige Text */
-  --color-text-subtle: #8C867D;     /* Soft Metadata Gray */
-  --color-text-inverse: #FBF9F5;    /* Light Text on Dark Surfaces */
+  --color-text-main: #0A0F1D;       /* Obsidian Slate Black */
+  --color-text-muted: #475569;      /* Architectural Cool Slate Text */
+  --color-text-subtle: #94A3B8;     /* Refined Metadata Slate */
+  --color-text-inverse: #FFFFFF;    /* Pure White Text on Dark Surfaces */
 
-  --color-dark-bg: #141312;         /* Deep Architectural Basalt */
-  --color-dark-surface: #1E1D1B;    /* Charcoal Surface Elevation */
-  --color-dark-border: rgba(255, 255, 255, 0.1);
+  --color-dark-bg: #080C16;         /* Obsidian Midnight Black */
+  --color-dark-surface: #111827;    /* Slate-tinted Basalt Surface Elevation */
+  --color-dark-border: rgba(255, 255, 255, 0.12);
 
-  --color-border: #E6E1D6;          /* Refined Stone Border */
-  --color-border-subtle: #EDE9E0;   /* Light Divider */
-  --color-border-active: #1A1918;   /* High-Contrast Interactive Border */
+  --color-border: #E2E8F0;          /* Crisp Architectural Border */
+  --color-border-subtle: #F1F5F9;   /* Light Divider */
+  --color-border-active: #0A0F1D;   /* High-Contrast Interactive Border */
 
-  /* Restrained Metallic Bronze Accents */
-  --color-bronze: #A07849;
-  --color-bronze-light: #F4EDE4;
-  --color-bronze-dark: #7F5D34;
-  --color-bronze-glow: rgba(160, 120, 73, 0.15);
+  /* Architectural Royal Sapphire & Mediterranean Cobalt Accents */
+  --color-blue: #1D4ED8;            /* Royal Cobalt Blue */
+  --color-blue-vibrant: #2563EB;    /* Electric Sapphire Blue */
+  --color-blue-light: #EFF6FF;      /* Soft Ice Azure Background */
+  --color-blue-subtle: #DBEAFE;     /* Azure Border Tint */
+  --color-blue-dark: #1E3A8A;       /* Deep Mediterranean Navy */
+  --color-blue-glow: rgba(37, 99, 235, 0.20);
+
+  /* Primary Accent & Backwards-Compatibility Aliases */
+  --color-accent: var(--color-blue);
+  --color-accent-light: var(--color-blue-light);
+  --color-accent-dark: var(--color-blue-dark);
+  --color-accent-glow: var(--color-blue-glow);
+
+  --color-bronze: var(--color-blue);
+  --color-bronze-light: var(--color-blue-light);
+  --color-bronze-dark: var(--color-blue-dark);
+  --color-bronze-glow: var(--color-blue-glow);
 
   /* Functional Accents */
   --color-whatsapp: #25D366;
@@ -50,10 +63,10 @@
   --radius-pill: 9999px;
 
   /* Subtle Architectural Elevation */
-  --shadow-sm: 0 2px 8px rgba(26, 25, 24, 0.04);
-  --shadow-md: 0 8px 24px rgba(26, 25, 24, 0.06);
-  --shadow-lg: 0 16px 40px rgba(26, 25, 24, 0.08);
-  --shadow-xl: 0 24px 60px rgba(26, 25, 24, 0.12);
+  --shadow-sm: 0 2px 8px rgba(10, 15, 29, 0.04);
+  --shadow-md: 0 8px 24px rgba(10, 15, 29, 0.06);
+  --shadow-lg: 0 16px 40px rgba(10, 15, 29, 0.08);
+  --shadow-xl: 0 24px 60px rgba(10, 15, 29, 0.12);
 
   /* Easing & Motion */
   --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
@@ -195,10 +208,10 @@ button {
 }
 
 .tw-btn-primary:hover {
-  background-color: #2D2B28;
-  border-color: #2D2B28;
+  background-color: #1E293B;
+  border-color: #1E293B;
   transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(20, 19, 18, 0.18);
+  box-shadow: 0 6px 16px rgba(8, 12, 22, 0.22);
 }
 
 .tw-btn-secondary {
@@ -209,19 +222,22 @@ button {
 
 .tw-btn-secondary:hover {
   background-color: var(--color-surface-subtle);
+  border-color: var(--color-blue);
+  color: var(--color-blue);
   transform: translateY(-1px);
 }
 
 .tw-btn-bronze {
-  background-color: var(--color-bronze);
+  background-color: var(--color-blue);
   color: #FFFFFF;
-  border: 1px solid var(--color-bronze);
+  border: 1px solid var(--color-blue);
 }
 
 .tw-btn-bronze:hover {
-  background-color: var(--color-bronze-dark);
-  border-color: var(--color-bronze-dark);
+  background-color: var(--color-blue-dark);
+  border-color: var(--color-blue-dark);
   transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(29, 78, 216, 0.28);
 }
 
 .tw-btn-whatsapp {
@@ -302,15 +318,15 @@ button {
 @keyframes twBeaconPulse {
   0% {
     transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(160, 120, 73, 0.7);
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.7);
   }
   70% {
     transform: scale(1);
-    box-shadow: 0 0 0 9px rgba(160, 120, 73, 0);
+    box-shadow: 0 0 0 9px rgba(37, 99, 235, 0);
   }
   100% {
     transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(160, 120, 73, 0);
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
   }
 }
 
@@ -318,10 +334,12 @@ button {
   0% {
     transform: translate(-50%, -50%) scale(0.85);
     opacity: 1;
+    border-color: rgba(37, 99, 235, 0.85);
   }
   100% {
     transform: translate(-50%, -50%) scale(2.4);
     opacity: 0;
+    border-color: rgba(37, 99, 235, 0);
   }
 }
 
@@ -413,8 +431,8 @@ button {
 
 .tw-interactive-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 42px rgba(20, 19, 18, 0.16) !important;
-  border-color: rgba(160, 120, 73, 0.4) !important;
+  box-shadow: 0 20px 42px rgba(8, 12, 22, 0.12) !important;
+  border-color: rgba(37, 99, 235, 0.45) !important;
 }
 
 .tw-interactive-card::after {
@@ -471,7 +489,7 @@ button {
   width: 100%;
   height: 100%;
   border-radius: var(--radius-pill);
-  border: 2px solid var(--color-bronze-light);
+  border: 2px solid var(--color-blue);
   animation: twRadarPulse 2.4s cubic-bezier(0.16, 1, 0.3, 1) infinite;
   pointer-events: none;
 }

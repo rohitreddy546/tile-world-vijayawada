@@ -31,7 +31,7 @@ export const EnquirySection: React.FC<EnquirySectionProps> = ({ onOpenEnquiry })
               width: '500px',
               height: '500px',
               borderRadius: '50%',
-              background: 'radial-gradient(circle, rgba(160, 120, 73, 0.18) 0%, rgba(20, 19, 18, 0) 70%)',
+              background: 'radial-gradient(circle, rgba(37, 99, 235, 0.22) 0%, rgba(8, 12, 22, 0) 70%)',
               pointerEvents: 'none'
             }}
           />
@@ -71,7 +71,7 @@ export const EnquirySection: React.FC<EnquirySectionProps> = ({ onOpenEnquiry })
                 }}
               >
                 Planning your next space? <br />
-                <span style={{ fontStyle: 'italic', color: 'var(--color-bronze)' }}>
+                <span style={{ fontStyle: 'italic', color: 'var(--color-blue)' }}>
                   Consult our material specialists.
                 </span>
               </h2>
@@ -80,7 +80,7 @@ export const EnquirySection: React.FC<EnquirySectionProps> = ({ onOpenEnquiry })
                 style={{
                   fontSize: '1.0625rem',
                   lineHeight: 1.65,
-                  color: '#D4CEBE',
+                  color: '#E2E8F0',
                   marginBottom: '2rem',
                   maxWidth: '540px'
                 }}
@@ -142,7 +142,7 @@ export const EnquirySection: React.FC<EnquirySectionProps> = ({ onOpenEnquiry })
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                 <div>
-                  <span style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: '#9E978C', display: 'block', marginBottom: '0.25rem' }}>
+                  <span style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: '#94A3B8', display: 'block', marginBottom: '0.25rem' }}>
                     Primary Showroom Hotline
                   </span>
                   <a
@@ -157,13 +157,13 @@ export const EnquirySection: React.FC<EnquirySectionProps> = ({ onOpenEnquiry })
                       gap: '0.5rem'
                     }}
                   >
-                    <Phone size={18} color="var(--color-bronze)" />
+                    <Phone size={18} color="var(--color-blue)" />
                     <span>{BUSINESS_INFO.primaryPhoneDisplay}</span>
                   </a>
                 </div>
 
                 <div>
-                  <span style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: '#9E978C', display: 'block', marginBottom: '0.25rem' }}>
+                  <span style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: '#94A3B8', display: 'block', marginBottom: '0.25rem' }}>
                     Alternative Showroom Mobile
                   </span>
                   <a
@@ -171,26 +171,26 @@ export const EnquirySection: React.FC<EnquirySectionProps> = ({ onOpenEnquiry })
                     style={{
                       fontSize: '1.125rem',
                       fontFamily: 'var(--font-serif)',
-                      color: '#D4CEBE',
+                      color: '#E2E8F0',
                       display: 'inline-flex',
                       alignItems: 'center',
                       gap: '0.5rem'
                     }}
                   >
-                    <Phone size={16} color="var(--color-bronze)" />
+                    <Phone size={16} color="var(--color-blue)" />
                     <span>{BUSINESS_INFO.secondaryPhoneDisplay}</span>
                   </a>
                 </div>
 
                 <div>
-                  <span style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: '#9E978C', display: 'block', marginBottom: '0.25rem' }}>
+                  <span style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: '#94A3B8', display: 'block', marginBottom: '0.25rem' }}>
                     Sri Vasavi Tiles Branch Landline
                   </span>
                   <span
                     style={{
                       fontSize: '1.0625rem',
                       fontFamily: 'var(--font-serif)',
-                      color: '#D4CEBE'
+                      color: '#E2E8F0'
                     }}
                   >
                     {BUSINESS_INFO.landlineDisplay}
@@ -198,7 +198,7 @@ export const EnquirySection: React.FC<EnquirySectionProps> = ({ onOpenEnquiry })
                 </div>
 
                 <div style={{ paddingTop: '0.75rem', borderTop: '1px solid rgba(255, 255, 255, 0.1)' }}>
-                  <span style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: '#9E978C', display: 'block', marginBottom: '0.25rem' }}>
+                  <span style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: '#94A3B8', display: 'block', marginBottom: '0.25rem' }}>
                     Working Hours
                   </span>
                   <span style={{ fontSize: '0.875rem', color: '#FFFFFF' }}>

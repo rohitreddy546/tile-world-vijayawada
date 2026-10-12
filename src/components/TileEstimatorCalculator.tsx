@@ -456,10 +456,10 @@ export const TileEstimatorCalculator: React.FC<TileEstimatorProps> = ({
           >
             <div>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.25rem' }}>
-                <span style={{ fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--color-bronze-light)', fontWeight: 600 }}>
+                <span style={{ fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--color-blue-light)', fontWeight: 600 }}>
                   Estimated Requirements
                 </span>
-                <span style={{ fontSize: '0.75rem', color: '#9E978C' }}>
+                <span style={{ fontSize: '0.75rem', color: '#94A3B8' }}>
                   Coverage Model
                 </span>
               </div>
@@ -476,7 +476,7 @@ export const TileEstimatorCalculator: React.FC<TileEstimatorProps> = ({
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', marginBottom: '0.25rem' }}>
-                  <Box size={22} color="var(--color-bronze)" />
+                  <Box size={22} color="var(--color-blue)" />
                   <span
                     style={{
                       fontFamily: 'var(--font-serif)',
@@ -489,10 +489,10 @@ export const TileEstimatorCalculator: React.FC<TileEstimatorProps> = ({
                     {boxesNeeded}
                   </span>
                 </div>
-                <span style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--color-bronze-light)' }}>
+                <span style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--color-blue-light)' }}>
                   Total Packing Boxes Required
                 </span>
-                <span style={{ display: 'block', fontSize: '0.75rem', color: '#9E978C', marginTop: '0.25rem' }}>
+                <span style={{ display: 'block', fontSize: '0.75rem', color: '#94A3B8', marginTop: '0.25rem' }}>
                   ({totalPieces} total tiles &bull; ~{Math.round(totalCoveredSqFt)} sq. ft. supplied)
                 </span>
               </div>
@@ -500,22 +500,22 @@ export const TileEstimatorCalculator: React.FC<TileEstimatorProps> = ({
               {/* Key Calculations Table */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.625rem', marginBottom: '1.75rem' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.8125rem' }}>
-                  <span style={{ color: '#9E978C' }}>Net Floor/Wall Area:</span>
+                  <span style={{ color: '#94A3B8' }}>Net Floor/Wall Area:</span>
                   <span style={{ fontWeight: 600, color: '#FFFFFF' }}>
                     {Math.round(netSqFt)} sq. ft. ({netSqM.toFixed(1)} m²)
                   </span>
                 </div>
 
                 <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.8125rem' }}>
-                  <span style={{ color: '#9E978C' }}>Cutting Wastage ({wastagePercent}%):</span>
+                  <span style={{ color: '#94A3B8' }}>Cutting Wastage ({wastagePercent}%):</span>
                   <span style={{ fontWeight: 600, color: '#FFFFFF' }}>
                     +{Math.round(wastageSqFt)} sq. ft.
                   </span>
                 </div>
 
                 <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.8125rem', paddingTop: '0.5rem', borderTop: '1px solid rgba(255, 255, 255, 0.1)' }}>
-                  <span style={{ color: '#D4CEBE' }}>Gross Area with Buffer:</span>
-                  <span style={{ fontWeight: 700, color: 'var(--color-bronze)' }}>
+                  <span style={{ color: '#E2E8F0' }}>Gross Area with Buffer:</span>
+                  <span style={{ fontWeight: 700, color: 'var(--color-blue)' }}>
                     {Math.round(grossSqFt)} sq. ft.
                   </span>
                 </div>

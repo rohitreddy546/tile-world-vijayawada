@@ -7,7 +7,7 @@ export const Footer: React.FC = () => {
     <footer
       style={{
         backgroundColor: 'var(--color-dark-bg)',
-        color: '#D4CEBE',
+        color: '#E2E8F0',
         paddingTop: '5rem',
         paddingBottom: '2.5rem',
         borderTop: '1px solid rgba(255, 255, 255, 0.08)'
@@ -51,7 +51,7 @@ export const Footer: React.FC = () => {
                     fontSize: '0.6875rem',
                     letterSpacing: '0.12em',
                     textTransform: 'uppercase',
-                    color: 'var(--color-bronze)',
+                    color: 'var(--color-blue)',
                     marginTop: '0.2rem'
                   }}
                 >
@@ -60,7 +60,7 @@ export const Footer: React.FC = () => {
               </div>
             </div>
 
-            <p style={{ fontSize: '0.875rem', lineHeight: 1.65, color: '#9E978C', marginBottom: '1.5rem' }}>
+            <p style={{ fontSize: '0.875rem', lineHeight: 1.65, color: '#94A3B8', marginBottom: '1.5rem' }}>
               Specialists in premium vitrified flooring, large-format wall slabs, and complete coordinated bathware. Three multi-brand showrooms serving Vijayawada, Guntur, and coastal Andhra Pradesh.
             </p>
 
@@ -82,7 +82,7 @@ export const Footer: React.FC = () => {
               }}
               aria-label="Follow Tile World on Instagram"
             >
-              <Instagram size={15} color="var(--color-bronze)" />
+              <Instagram size={15} color="var(--color-blue)" />
               <span>{BUSINESS_INFO.instagramHandle}</span>
             </a>
           </div>
@@ -116,11 +116,11 @@ export const Footer: React.FC = () => {
                     href={link.href}
                     style={{
                       fontSize: '0.875rem',
-                      color: '#9E978C',
+                      color: '#94A3B8',
                       transition: 'color var(--transition-fast)'
                     }}
                     onMouseEnter={(e) => (e.currentTarget.style.color = '#FFFFFF')}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = '#9E978C')}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = '#94A3B8')}
                   >
                     {link.label}
                   </a>
@@ -144,11 +144,11 @@ export const Footer: React.FC = () => {
             </h4>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
               {BRAND_PARTNERS.slice(0, 7).map((b) => (
-                <li key={b.name} style={{ fontSize: '0.875rem', color: '#9E978C' }}>
+                <li key={b.name} style={{ fontSize: '0.875rem', color: '#94A3B8' }}>
                   {b.name}
                 </li>
               ))}
-              <li style={{ fontSize: '0.75rem', color: 'var(--color-bronze)', marginTop: '0.25rem' }}>
+              <li style={{ fontSize: '0.75rem', color: 'var(--color-blue)', marginTop: '0.25rem' }}>
                 &amp; more authorized partnerships
               </li>
             </ul>
@@ -174,12 +174,12 @@ export const Footer: React.FC = () => {
                   <p style={{ fontSize: '0.875rem', fontWeight: 600, color: '#FFFFFF', margin: 0 }}>
                     {s.name}
                   </p>
-                  <p style={{ fontSize: '0.8125rem', color: '#9E978C', margin: '0.15rem 0' }}>
+                  <p style={{ fontSize: '0.8125rem', color: '#94A3B8', margin: '0.15rem 0' }}>
                     {s.address}, {s.city}
                   </p>
                   <a
                     href={`tel:${s.phone}`}
-                    style={{ fontSize: '0.75rem', color: 'var(--color-bronze)', fontWeight: 600 }}
+                    style={{ fontSize: '0.75rem', color: 'var(--color-blue)', fontWeight: 600 }}
                   >
                     {s.phoneDisplay}
                   </a>
@@ -200,7 +200,7 @@ export const Footer: React.FC = () => {
             flexWrap: 'wrap',
             gap: '1rem',
             fontSize: '0.75rem',
-            color: '#7A756D'
+            color: '#64748B'
           }}
         >
           <p style={{ margin: 0 }}>

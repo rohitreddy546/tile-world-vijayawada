@@ -49,7 +49,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenEnquiry }) => {
               }}
             >
               Transform Spaces. <br />
-              <span style={{ fontStyle: 'italic', fontWeight: 400, color: 'var(--color-bronze)' }}>
+              <span style={{ fontStyle: 'italic', fontWeight: 400, color: 'var(--color-blue)' }}>
                 Elevate Living.
               </span>
             </h1>
@@ -90,7 +90,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenEnquiry }) => {
                 className="tw-btn tw-btn-secondary"
                 style={{ padding: '0.9375rem 1.75rem', fontSize: '0.9375rem' }}
               >
-                <MapPin size={16} color="var(--color-bronze)" />
+                <MapPin size={16} color="var(--color-blue)" />
                 <span>Visit Showrooms</span>
               </a>
             </div>
@@ -167,12 +167,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenEnquiry }) => {
                 position: 'absolute',
                 top: '-1.5rem',
                 right: '1.5rem',
-                backgroundColor: 'rgba(20, 19, 18, 0.88)',
+                backgroundColor: 'rgba(8, 12, 22, 0.92)',
                 backdropFilter: 'blur(10px)',
                 padding: '0.625rem 1.125rem',
                 borderRadius: 'var(--radius-pill)',
-                boxShadow: '0 12px 30px rgba(0, 0, 0, 0.3)',
-                border: '1px solid rgba(255, 255, 255, 0.15)',
+                boxShadow: '0 12px 30px rgba(8, 12, 22, 0.35)',
+                border: '1px solid rgba(37, 99, 235, 0.3)',
                 color: '#FFFFFF',
                 display: 'flex',
                 alignItems: 'center',
@@ -275,7 +275,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenEnquiry }) => {
                 backgroundColor: 'var(--color-surface)',
                 padding: '1rem 1.25rem',
                 borderRadius: 'var(--radius-sm)',
-                boxShadow: '0 20px 40px rgba(20, 19, 18, 0.16)',
+                boxShadow: '0 20px 40px rgba(8, 12, 22, 0.12)',
                 border: '1px solid var(--color-border)',
                 display: 'flex',
                 alignItems: 'center',
@@ -340,7 +340,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenEnquiry }) => {
       >
         <span>Explore Surfaces</span>
         <div style={{ animation: 'twScrollBounce 2.2s ease infinite' }}>
-          <ArrowDown size={14} color="var(--color-bronze)" />
+          <ArrowDown size={14} color="var(--color-blue)" />
         </div>
       </a>
 
