@@ -13,20 +13,34 @@ import { ShowroomsSection } from './components/ShowroomsSection';
 import { EnquirySection } from './components/EnquirySection';
 import { Footer } from './components/Footer';
 import { EnquiryModal } from './components/EnquiryModal';
+import { TileEstimatorCalculator } from './components/TileEstimatorCalculator';
 import { BUSINESS_INFO } from './data/showroomData';
 
 export const App: React.FC = () => {
   const [enquiryModalOpen, setEnquiryModalOpen] = useState(false);
   const [enquiryCategory, setEnquiryCategory] = useState<string | undefined>(undefined);
+  const [enquirySqFt, setEnquirySqFt] = useState<string | undefined>(undefined);
+  const [enquiryMessage, setEnquiryMessage] = useState<string | undefined>(undefined);
 
   const handleOpenEnquiry = (category?: string) => {
     setEnquiryCategory(category);
+    setEnquirySqFt(undefined);
+    setEnquiryMessage(undefined);
+    setEnquiryModalOpen(true);
+  };
+
+  const handleOpenEnquiryWithEstimate = (summary: string, approxSqFt: string) => {
+    setEnquiryCategory('Flooring & Vitrified Tiles');
+    setEnquirySqFt(approxSqFt);
+    setEnquiryMessage(`Calculated tile requirement from showroom estimator: ${summary}`);
     setEnquiryModalOpen(true);
   };
 
   const handleCloseEnquiry = () => {
     setEnquiryModalOpen(false);
     setEnquiryCategory(undefined);
+    setEnquirySqFt(undefined);
+    setEnquiryMessage(undefined);
   };
 
   return (
@@ -58,6 +72,9 @@ export const App: React.FC = () => {
         {/* Featured Collections Gallery with Specification Drawers */}
         <CollectionsGallery onOpenConsultation={(prod) => handleOpenEnquiry(prod)} />
 
+        {/* Interactive Tile Coverage & Box Estimator Tool */}
+        <TileEstimatorCalculator onOpenConsultationWithEstimate={handleOpenEnquiryWithEstimate} />
+
         {/* Tactile Finishes & Real MP4 Video Showcase */}
         <FinishesVideoSection />
 
@@ -82,6 +99,8 @@ export const App: React.FC = () => {
         isOpen={enquiryModalOpen}
         onClose={handleCloseEnquiry}
         initialCategory={enquiryCategory}
+        initialSqFt={enquirySqFt}
+        initialMessage={enquiryMessage}
       />
 
       {/* 6. Floating Persistent WhatsApp Button */}

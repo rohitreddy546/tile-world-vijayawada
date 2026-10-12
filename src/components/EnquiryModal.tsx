@@ -6,29 +6,33 @@ interface EnquiryModalProps {
   isOpen: boolean;
   onClose: () => void;
   initialCategory?: string;
+  initialSqFt?: string;
+  initialMessage?: string;
 }
 
 export const EnquiryModal: React.FC<EnquiryModalProps> = ({
   isOpen,
   onClose,
-  initialCategory
+  initialCategory,
+  initialSqFt,
+  initialMessage
 }) => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [category, setCategory] = useState(initialCategory || 'Flooring & Vitrified Tiles');
   const [preferredShowroom, setPreferredShowroom] = useState('Tile World — Governorpet');
-  const [approxSqFt, setApproxSqFt] = useState('');
-  const [message, setMessage] = useState('');
+  const [approxSqFt, setApproxSqFt] = useState(initialSqFt || '');
+  const [message, setMessage] = useState(initialMessage || '');
 
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
-    if (initialCategory) {
-      setCategory(initialCategory);
-    }
-  }, [initialCategory]);
+    if (initialCategory) setCategory(initialCategory);
+    if (initialSqFt) setApproxSqFt(initialSqFt);
+    if (initialMessage) setMessage(initialMessage);
+  }, [initialCategory, initialSqFt, initialMessage]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
