@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { X, Phone, MessageSquare, CheckCircle2, AlertCircle } from 'lucide-react';
 import { BUSINESS_INFO, SHOWROOMS } from '../data/showroomData';
+import { validateEnquiryForm, formatWhatsAppEnquiryUrl } from '../utils/validation';
 
 interface EnquiryModalProps {
   isOpen: boolean;
@@ -51,15 +52,9 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
   if (!isOpen) return null;
 
   const validate = () => {
-    const newErrors: { [key: string]: string } = {};
-    if (!name.trim()) newErrors.name = 'Please provide your name';
-    if (!phone.trim()) {
-      newErrors.phone = 'Please provide your phone number';
-    } else if (!/^[0-9+\s-]{10,14}$/.test(phone.trim())) {
-      newErrors.phone = 'Please enter a valid 10-digit mobile number';
-    }
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    const res = validateEnquiryForm(name, phone);
+    setErrors(res.errors);
+    return res.isValid;
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -68,22 +63,20 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
 
     setSubmitting(true);
 
-    // Format text for WhatsApp dispatch
-    const waText = encodeURIComponent(
-      `*New Showroom Enquiry — Tile World Vijayawada*\n` +
-      `*Name:* ${name}\n` +
-      `*Phone:* ${phone}\n` +
-      `*Interested Category:* ${category}\n` +
-      `*Preferred Showroom:* ${preferredShowroom}\n` +
-      (approxSqFt ? `*Approx. Area:* ${approxSqFt} sq. ft.\n` : '') +
-      (message ? `*Notes:* ${message}\n` : '')
-    );
+    const waUrl = formatWhatsAppEnquiryUrl({
+      name,
+      phone,
+      category,
+      preferredShowroom,
+      approxSqFt,
+      message
+    });
 
     setTimeout(() => {
       setSubmitting(false);
       setSubmitted(true);
       // Automatically open WhatsApp with verified number
-      window.open(`https://wa.me/919908686789?text=${waText}`, '_blank');
+      window.open(waUrl, '_blank');
     }, 450);
   };
 

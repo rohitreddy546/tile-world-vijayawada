@@ -62,6 +62,52 @@ export const TILE_FORMATS: TileFormat[] = [
   }
 ];
 
+export interface CalculationResult {
+  netSqFt: number;
+  netSqM: number;
+  wastageSqFt: number;
+  grossSqFt: number;
+  boxesNeeded: number;
+  totalPieces: number;
+  totalCoveredSqFt: number;
+}
+
+export function calculateTileRequirements(
+  length: number,
+  width: number,
+  unit: 'feet' | 'meters',
+  sqFtPerBox: number,
+  pcsPerBox: number,
+  wastagePercent: number
+): CalculationResult {
+  const safeLength = Math.max(0, Number.isFinite(length) ? length : 0);
+  const safeWidth = Math.max(0, Number.isFinite(width) ? width : 0);
+  let netSqFt = 0;
+  if (unit === 'feet') {
+    netSqFt = safeLength * safeWidth;
+  } else {
+    const netSqM = safeLength * safeWidth;
+    netSqFt = netSqM * 10.7639;
+  }
+  const netSqM = netSqFt / 10.7639;
+  const safeWastage = Math.max(0, Number.isFinite(wastagePercent) ? wastagePercent : 0);
+  const wastageSqFt = netSqFt * (safeWastage / 100);
+  const grossSqFt = netSqFt + wastageSqFt;
+  const boxesNeeded = grossSqFt > 0 && sqFtPerBox > 0 ? Math.ceil(grossSqFt / sqFtPerBox) : 0;
+  const totalPieces = boxesNeeded * pcsPerBox;
+  const totalCoveredSqFt = boxesNeeded * sqFtPerBox;
+
+  return {
+    netSqFt,
+    netSqM,
+    wastageSqFt,
+    grossSqFt,
+    boxesNeeded,
+    totalPieces,
+    totalCoveredSqFt
+  };
+}
+
 interface TileEstimatorProps {
   onOpenConsultationWithEstimate: (estimateSummary: string, approxSqFt: string) => void;
 }
@@ -102,26 +148,22 @@ export const TileEstimatorCalculator: React.FC<TileEstimatorProps> = ({
   const numLength = parseFloat(length) || 0;
   const numWidth = parseFloat(width) || 0;
 
-  // Calculate Net Area
-  let netSqFt = 0;
-  if (unit === 'feet') {
-    netSqFt = numLength * numWidth;
-  } else {
-    // Meters to sq ft (1 sq m = 10.7639 sq ft)
-    const netSqM = numLength * numWidth;
-    netSqFt = netSqM * 10.7639;
-  }
-
-  const netSqM = netSqFt / 10.7639;
-
-  // Add Wastage buffer
-  const wastageSqFt = netSqFt * (wastagePercent / 100);
-  const grossSqFt = netSqFt + wastageSqFt;
-
-  // Box & piece counts
-  const boxesNeeded = grossSqFt > 0 ? Math.ceil(grossSqFt / selectedFormat.sqFtPerBox) : 0;
-  const totalPieces = boxesNeeded * selectedFormat.pcsPerBox;
-  const totalCoveredSqFt = boxesNeeded * selectedFormat.sqFtPerBox;
+  const {
+    netSqFt,
+    netSqM,
+    wastageSqFt,
+    grossSqFt,
+    boxesNeeded,
+    totalPieces,
+    totalCoveredSqFt
+  } = calculateTileRequirements(
+    numLength,
+    numWidth,
+    unit,
+    selectedFormat.sqFtPerBox,
+    selectedFormat.pcsPerBox,
+    wastagePercent
+  );
 
   // WhatsApp Enquiry string
   const waEstimateMessage = encodeURIComponent(
