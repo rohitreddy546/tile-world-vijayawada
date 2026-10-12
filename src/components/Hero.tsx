@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowDown, MapPin } from 'lucide-react';
+import { ArrowDown, MapPin, Sparkles, Play } from 'lucide-react';
 
 interface HeroProps {
   onOpenEnquiry: () => void;
@@ -83,6 +83,15 @@ export const Hero: React.FC<HeroProps> = ({ onOpenEnquiry }) => {
               >
                 <span>Explore Collections</span>
                 <ArrowDown size={16} />
+              </a>
+
+              <a
+                href="#cinematic-story"
+                className="tw-btn tw-btn-bronze"
+                style={{ padding: '0.9375rem 1.75rem', fontSize: '0.9375rem', gap: '0.5rem' }}
+              >
+                <Sparkles size={16} />
+                <span>Cinematic Slab Story</span>
               </a>
 
               <a
@@ -246,28 +255,39 @@ export const Hero: React.FC<HeroProps> = ({ onOpenEnquiry }) => {
                     Available in 600&times;1200mm Vitrified Slabs
                   </p>
                 </div>
-                <button
-                  onClick={onOpenEnquiry}
+                <a
+                  href="#cinematic-story"
                   style={{
                     padding: '0.5rem 0.875rem',
                     backgroundColor: 'rgba(255, 255, 255, 0.95)',
-                    color: 'var(--color-text-main)',
+                    color: '#070A12',
                     fontSize: '0.75rem',
                     fontWeight: 600,
                     borderRadius: 'var(--radius-xs)',
                     letterSpacing: '0.02em',
-                    transition: 'transform var(--transition-fast)'
+                    transition: 'transform var(--transition-fast)',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.4rem',
+                    textDecoration: 'none'
                   }}
                   onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.05)')}
                   onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
                 >
-                  Consult Showroom
-                </button>
+                  <Play size={12} fill="currentColor" color="var(--color-blue)" />
+                  <span>Cinematic Film</span>
+                </a>
               </div>
             </div>
 
             {/* Overlapping Tactile Detail Floating Card with Organic Bobbing Animation */}
             <div
+              onClick={() => onOpenEnquiry()}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') onOpenEnquiry();
+              }}
               style={{
                 position: 'absolute',
                 bottom: '-2rem',
@@ -282,6 +302,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenEnquiry }) => {
                 gap: '0.875rem',
                 maxWidth: '280px',
                 zIndex: 6,
+                cursor: 'pointer',
                 animation: 'twFloatSlow 5s ease-in-out infinite'
               }}
               className="tw-floating-card"

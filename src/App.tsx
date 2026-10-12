@@ -4,6 +4,7 @@ import { AnnouncementBar } from './components/AnnouncementBar';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { BrandTicker } from './components/BrandTicker';
+import { CinematicSlabScrubber } from './components/CinematicSlabScrubber';
 import { CategoriesSection } from './components/CategoriesSection';
 import { CollectionsGallery } from './components/CollectionsGallery';
 import { FinishesVideoSection } from './components/FinishesVideoSection';
@@ -63,6 +64,11 @@ export const App: React.FC = () => {
 
         {/* Brand Partner Ticker */}
         <BrandTicker />
+
+        {/* Flagship Cinematic Slab Journey Visualization */}
+        <div className="tw-reveal">
+          <CinematicSlabScrubber onOpenConsultation={(ch) => handleOpenEnquiry(`Statuario Slab Journey — ${ch}`)} />
+        </div>
 
         {/* Product Category Architecture */}
         <div className="tw-reveal">

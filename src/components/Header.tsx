@@ -46,6 +46,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenEnquiry }) => {
   // Full navigation links for mobile drawer
   const allNavLinks = [
     { label: 'Home', href: '#' },
+    { label: 'Cinematic Story', href: '#cinematic-story' },
     { label: 'Collections', href: '#collections' },
     { label: 'Room Studio', href: '#room-previewer' },
     { label: 'Estimator', href: '#calculator' },
@@ -59,6 +60,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenEnquiry }) => {
 
   // Curated, uncluttered primary anchors for desktop navigation
   const desktopNavLinks = [
+    { label: 'Slab Journey', href: '#cinematic-story' },
     { label: 'Collections', href: '#collections' },
     { label: 'Room Studio', href: '#room-previewer' },
     { label: 'Estimator', href: '#calculator' },
