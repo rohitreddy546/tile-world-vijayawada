@@ -164,6 +164,7 @@ export const ShowcaseGallery: React.FC<ShowcaseGalleryProps> = ({ onOpenConsulta
                 >
                   {/* Left Column: High-Resolution Architectural Photography */}
                   <div
+                    className="tw-stack-img-wrap"
                     style={{
                       position: 'relative',
                       minHeight: '380px',
@@ -304,7 +305,7 @@ export const ShowcaseGallery: React.FC<ShowcaseGalleryProps> = ({ onOpenConsulta
 
                     {/* Action Buttons */}
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' }}>
+                      <div className="tw-stack-card-actions" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' }}>
                         <button
                           onClick={() => onOpenConsultation(proj.title)}
                           className="tw-btn tw-btn-primary"
@@ -447,11 +448,26 @@ export const ShowcaseGallery: React.FC<ShowcaseGalleryProps> = ({ onOpenConsulta
         }
 
         @media (max-width: 960px) {
+          .tw-stack-card {
+            position: relative !important;
+            top: auto !important;
+            margin-bottom: 2.25rem !important;
+          }
           .tw-stack-body-grid {
             grid-template-columns: 1fr !important;
           }
-          .tw-stack-card {
-            margin-bottom: 3.5rem !important;
+          .tw-stack-img-wrap {
+            min-height: 220px !important;
+            height: 260px !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .tw-stack-card-actions {
+            grid-template-columns: 1fr !important;
+          }
+          .tw-stack-card-actions button {
+            width: 100% !important;
           }
         }
 

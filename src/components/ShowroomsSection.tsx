@@ -24,9 +24,10 @@ export const ShowroomsSection: React.FC = () => {
 
         {/* 3 Showroom Location Cards */}
         <div
+          className="tw-showrooms-grid"
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(330px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))',
             gap: '2rem',
             marginBottom: '3.5rem'
           }}
@@ -191,6 +192,7 @@ export const ShowroomsSection: React.FC = () => {
 
                   {/* Actions Row */}
                   <div
+                    className="tw-branch-actions"
                     style={{
                       display: 'grid',
                       gridTemplateColumns: '1fr 1fr',
@@ -303,6 +305,17 @@ export const ShowroomsSection: React.FC = () => {
       <style>{`
         .tw-branch-box:hover {
           transform: translateY(-2px);
+        }
+        @media (max-width: 600px) {
+          .tw-showrooms-grid {
+            grid-template-columns: 1fr !important;
+            gap: 1.5rem !important;
+          }
+        }
+        @media (max-width: 380px) {
+          .tw-branch-actions {
+            grid-template-columns: 1fr !important;
+          }
         }
       `}</style>
     </section>

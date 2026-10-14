@@ -74,7 +74,7 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ onOpenEnquiry }) => {
               Today the same family operates three regional showrooms across Governorpet and Chilakaluripeta, helping homeowners, architects, and interior designers pick tiles and bathware that suit the space, the use, and the budget.
             </p>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }} className="tw-why-cta-group">
               <button
                 onClick={onOpenEnquiry}
                 className="tw-btn tw-btn-primary"
@@ -98,7 +98,7 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ onOpenEnquiry }) => {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(240px, 100%), 1fr))',
               gap: '1.5rem'
             }}
           >
@@ -161,7 +161,14 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ onOpenEnquiry }) => {
         @media (max-width: 960px) {
           .tw-why-grid {
             grid-template-columns: 1fr !important;
-            gap: 3rem !important;
+            gap: 2.5rem !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .tw-why-cta-group button,
+          .tw-why-cta-group a {
+            width: 100% !important;
+            justify-content: center !important;
           }
         }
       `}</style>

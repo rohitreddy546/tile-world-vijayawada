@@ -196,8 +196,10 @@ export const App: React.FC = () => {
             display: none !important;
           }
           .tw-floating-wa-btn {
-            padding: 0.875rem !important;
+            padding: 0.75rem !important;
             border-radius: 50% !important;
+            bottom: 1.25rem !important;
+            right: 1.25rem !important;
           }
         }
       `}</style>

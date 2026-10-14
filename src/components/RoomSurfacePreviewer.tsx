@@ -547,24 +547,29 @@ export const RoomSurfacePreviewer: React.FC<RoomSurfacePreviewerProps> = ({ onOp
 
               {/* Bottom Surface Badge Strip */}
               <div
+                className="tw-previewer-badge-strip"
                 style={{
                   position: 'absolute',
                   bottom: '1rem',
                   left: '1rem',
+                  right: '1rem',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '0.75rem',
-                  zIndex: 5
+                  gap: '0.5rem',
+                  flexWrap: 'wrap',
+                  zIndex: 5,
+                  pointerEvents: 'none'
                 }}
               >
                 <div
                   style={{
-                    padding: '0.4rem 0.875rem',
+                    padding: '0.35rem 0.75rem',
                     borderRadius: 'var(--radius-xs)',
                     backgroundColor: 'rgba(7, 10, 18, 0.88)',
                     backdropFilter: 'blur(8px)',
                     border: '1px solid rgba(255, 255, 255, 0.12)',
-                    fontSize: '0.75rem'
+                    fontSize: '0.75rem',
+                    pointerEvents: 'auto'
                   }}
                 >
                   <span style={{ color: 'var(--color-bronze-light)', fontWeight: 600 }}>Floor: </span>
@@ -572,12 +577,13 @@ export const RoomSurfacePreviewer: React.FC<RoomSurfacePreviewerProps> = ({ onOp
                 </div>
                 <div
                   style={{
-                    padding: '0.4rem 0.875rem',
+                    padding: '0.35rem 0.75rem',
                     borderRadius: 'var(--radius-xs)',
                     backgroundColor: 'rgba(7, 10, 18, 0.88)',
                     backdropFilter: 'blur(8px)',
                     border: '1px solid rgba(255, 255, 255, 0.12)',
-                    fontSize: '0.75rem'
+                    fontSize: '0.75rem',
+                    pointerEvents: 'auto'
                   }}
                 >
                   <span style={{ color: 'var(--color-bronze-light)', fontWeight: 600 }}>Wall: </span>
@@ -919,10 +925,27 @@ export const RoomSurfacePreviewer: React.FC<RoomSurfacePreviewerProps> = ({ onOp
         @media (max-width: 960px) {
           .tw-previewer-grid {
             grid-template-columns: 1fr !important;
+            gap: 1.5rem !important;
           }
           .tw-previewer-canvas {
             height: 380px !important;
             min-height: 340px !important;
+          }
+        }
+        @media (max-width: 600px) {
+          .tw-previewer-canvas {
+            height: 320px !important;
+            min-height: 280px !important;
+          }
+          .tw-previewer-badge-strip {
+            bottom: 0.75rem !important;
+            left: 0.75rem !important;
+            right: 0.75rem !important;
+            gap: 0.35rem !important;
+          }
+          .tw-previewer-badge-strip div {
+            font-size: 0.6875rem !important;
+            padding: 0.25rem 0.5rem !important;
           }
         }
       `}</style>

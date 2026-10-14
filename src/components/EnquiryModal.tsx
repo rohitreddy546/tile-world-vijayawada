@@ -114,7 +114,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
           boxShadow: 'var(--shadow-xl)',
           overflowY: 'auto',
           position: 'relative',
-          padding: '2.25rem 2rem'
+          padding: 'clamp(1.25rem, 4vw, 2.25rem) clamp(1rem, 3.5vw, 2rem)'
         }}
         onClick={(e) => e.stopPropagation()}
       >

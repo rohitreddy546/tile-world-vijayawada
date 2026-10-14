@@ -291,9 +291,10 @@ export const CollectionsGallery: React.FC<CollectionsGalleryProps> = ({
         {/* Product Cards Grid or Empty State */}
         {filteredProducts.length > 0 ? (
           <div
+            className="tw-collections-grid"
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
               gap: '1.75rem'
             }}
           >
@@ -565,6 +566,12 @@ export const CollectionsGallery: React.FC<CollectionsGalleryProps> = ({
         }
         .tw-product-card:hover .tw-card-cta {
           color: var(--color-bronze);
+        }
+        @media (max-width: 540px) {
+          .tw-collections-grid {
+            grid-template-columns: 1fr !important;
+            gap: 1.25rem !important;
+          }
         }
       `}</style>
     </section>

@@ -126,7 +126,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenEnquiry }) => {
               <span
                 style={{
                   fontFamily: 'var(--font-serif)',
-                  fontSize: '1.45rem',
+                  fontSize: 'clamp(1.15rem, 4vw, 1.45rem)',
                   fontWeight: 600,
                   letterSpacing: '0.04em',
                   lineHeight: 1.1,
@@ -136,6 +136,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenEnquiry }) => {
                 TILE WORLD
               </span>
               <span
+                className="tw-header-est"
                 style={{
                   fontFamily: 'var(--font-sans)',
                   fontSize: '0.6875rem',
@@ -431,6 +432,16 @@ export const Header: React.FC<HeaderProps> = ({ onOpenEnquiry }) => {
         }
         @media (max-width: 1240px) {
           .tw-hide-laptop {
+            display: none !important;
+          }
+        }
+        @media (max-width: 580px) {
+          #header-enquire-btn {
+            display: none !important;
+          }
+        }
+        @media (max-width: 380px) {
+          .tw-header-est {
             display: none !important;
           }
         }

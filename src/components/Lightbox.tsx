@@ -125,6 +125,7 @@ export const Lightbox: React.FC<LightboxProps> = ({
           e.stopPropagation();
           onNavigate((currentIndex - 1 + images.length) % images.length);
         }}
+        className="tw-lightbox-btn tw-lightbox-prev"
         style={{
           position: 'absolute',
           left: '1.5rem',
@@ -152,6 +153,7 @@ export const Lightbox: React.FC<LightboxProps> = ({
           e.stopPropagation();
           onNavigate((currentIndex + 1) % images.length);
         }}
+        className="tw-lightbox-btn tw-lightbox-next"
         style={{
           position: 'absolute',
           right: '1.5rem',
@@ -223,6 +225,21 @@ export const Lightbox: React.FC<LightboxProps> = ({
           </p>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 600px) {
+          .tw-lightbox-btn {
+            width: 38px !important;
+            height: 38px !important;
+          }
+          .tw-lightbox-prev {
+            left: 0.5rem !important;
+          }
+          .tw-lightbox-next {
+            right: 0.5rem !important;
+          }
+        }
+      `}</style>
     </div>
   );
 };

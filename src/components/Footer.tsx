@@ -211,9 +211,9 @@ export const Footer: React.FC = () => {
             &copy; {new Date().getFullYear()} Tile World Vijayawada. All rights reserved.
           </p>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
             <span>Prakasam Road, Governorpet, Vijayawada, AP 520002</span>
-            <span>&bull;</span>
+            <span className="tw-hide-mobile">&bull;</span>
             <span>Mon–Sat: 9:00 AM – 9:00 PM</span>
           </div>
         </div>

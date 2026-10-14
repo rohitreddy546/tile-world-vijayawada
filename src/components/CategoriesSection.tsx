@@ -180,6 +180,8 @@ export const CategoriesSection: React.FC<CategoriesSectionProps> = ({ onSelectCa
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'space-between',
+                      flexWrap: 'wrap',
+                      gap: '0.625rem',
                       paddingTop: '1rem',
                       borderTop: '1px solid var(--color-border-subtle)'
                     }}

@@ -102,6 +102,7 @@ export const CollectionModal: React.FC<CollectionModalProps> = ({
 
         {/* Left: Product Image */}
         <div
+          className="tw-modal-img-wrap"
           style={{
             position: 'relative',
             backgroundColor: 'var(--color-surface-subtle)',
@@ -138,7 +139,7 @@ export const CollectionModal: React.FC<CollectionModalProps> = ({
         {/* Right: Technical Specifications & Enquiries */}
         <div
           style={{
-            padding: '2.25rem 2rem',
+            padding: 'clamp(1.5rem, 3.5vw, 2.25rem) clamp(1rem, 3vw, 2rem)',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between'
@@ -287,7 +288,7 @@ export const CollectionModal: React.FC<CollectionModalProps> = ({
               <span>Enquire Availability on WhatsApp</span>
             </a>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' }}>
+            <div className="tw-modal-actions" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' }}>
               <button
                 onClick={() => {
                   onClose();
@@ -315,6 +316,15 @@ export const CollectionModal: React.FC<CollectionModalProps> = ({
       <style>{`
         @media (max-width: 768px) {
           .tw-modal-grid {
+            grid-template-columns: 1fr !important;
+          }
+          .tw-modal-img-wrap {
+            min-height: 220px !important;
+            height: 240px !important;
+          }
+        }
+        @media (max-width: 440px) {
+          .tw-modal-actions {
             grid-template-columns: 1fr !important;
           }
         }

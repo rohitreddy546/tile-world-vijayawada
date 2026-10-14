@@ -89,6 +89,7 @@ export const EnquirySection: React.FC<EnquirySectionProps> = ({ onOpenEnquiry })
               </p>
 
               <div
+                className="tw-contact-cta-group"
                 style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -215,6 +216,14 @@ export const EnquirySection: React.FC<EnquirySectionProps> = ({ onOpenEnquiry })
         @media (max-width: 960px) {
           .tw-contact-grid {
             grid-template-columns: 1fr !important;
+            gap: 2.5rem !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .tw-contact-cta-group button,
+          .tw-contact-cta-group a {
+            width: 100% !important;
+            justify-content: center !important;
           }
         }
       `}</style>

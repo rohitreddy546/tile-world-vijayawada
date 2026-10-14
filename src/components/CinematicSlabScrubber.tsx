@@ -329,6 +329,7 @@ export const CinematicSlabScrubber: React.FC<CinematicSlabScrubberProps> = ({ on
 
               {/* HUD Center Crosshair */}
               <div
+                className="tw-cinematic-crosshair tw-hide-mobile"
                 style={{
                   alignSelf: 'center',
                   opacity: isHovering ? 0.85 : 0.25,
@@ -404,8 +405,9 @@ export const CinematicSlabScrubber: React.FC<CinematicSlabScrubberProps> = ({ on
 
           {/* Right Column: Architectural Narrative & Technical Specs */}
           <div
+            className="tw-cinematic-narrative-col"
             style={{
-              padding: 'clamp(1.75rem, 3.5vw, 2.75rem)',
+              padding: 'clamp(1.5rem, 3.5vw, 2.75rem)',
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'space-between',
@@ -438,7 +440,7 @@ export const CinematicSlabScrubber: React.FC<CinematicSlabScrubberProps> = ({ on
               <h3
                 style={{
                   fontFamily: 'var(--font-serif)',
-                  fontSize: 'clamp(1.65rem, 2.4vw, 2.2rem)',
+                  fontSize: 'clamp(1.5rem, 2.4vw, 2.2rem)',
                   fontWeight: 600,
                   lineHeight: 1.18,
                   color: 'var(--color-text-main)',
@@ -458,6 +460,7 @@ export const CinematicSlabScrubber: React.FC<CinematicSlabScrubberProps> = ({ on
 
               {/* Technical Specifications Grid */}
               <div
+                className="tw-cinematic-specs-grid"
                 style={{
                   display: 'grid',
                   gridTemplateColumns: 'repeat(3, 1fr)',
@@ -483,7 +486,7 @@ export const CinematicSlabScrubber: React.FC<CinematicSlabScrubberProps> = ({ on
             </div>
 
             {/* Bottom Actions */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+            <div className="tw-cinematic-actions" style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
               <button
                 onClick={() => onOpenConsultation && onOpenConsultation(activeChapter.title)}
                 className="tw-btn tw-btn-primary"
@@ -637,12 +640,31 @@ export const CinematicSlabScrubber: React.FC<CinematicSlabScrubberProps> = ({ on
           .tw-cinematic-theatre-grid {
             grid-template-columns: 1fr !important;
           }
+          .tw-cinematic-narrative-col {
+            border-left: none !important;
+            border-top: 1px solid var(--color-border) !important;
+          }
           .tw-cinematic-chapters-grid {
             grid-template-columns: repeat(2, 1fr) !important;
           }
         }
+        @media (max-width: 560px) {
+          .tw-cinematic-specs-grid {
+            grid-template-columns: 1fr 1fr !important;
+            gap: 0.875rem !important;
+          }
+        }
         @media (max-width: 540px) {
           .tw-cinematic-chapters-grid {
+            grid-template-columns: 1fr !important;
+          }
+          .tw-cinematic-actions button {
+            width: 100% !important;
+            justify-content: center !important;
+          }
+        }
+        @media (max-width: 380px) {
+          .tw-cinematic-specs-grid {
             grid-template-columns: 1fr !important;
           }
         }

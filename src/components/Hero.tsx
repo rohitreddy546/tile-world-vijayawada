@@ -65,7 +65,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenEnquiry }) => {
             <h1
               style={{
                 fontFamily: 'var(--font-serif)',
-                fontSize: 'clamp(2.75rem, 5.5vw, 4.5rem)',
+                fontSize: 'clamp(2.1rem, 6.5vw, 4.5rem)',
                 fontWeight: 500,
                 lineHeight: 1.08,
                 letterSpacing: '-0.025em',
@@ -81,7 +81,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenEnquiry }) => {
 
             <p
               style={{
-                fontSize: 'clamp(1.0625rem, 1.35vw, 1.25rem)',
+                fontSize: 'clamp(1rem, 1.35vw, 1.25rem)',
                 lineHeight: 1.65,
                 color: 'var(--color-text-muted)',
                 marginBottom: '2.5rem',
@@ -93,6 +93,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenEnquiry }) => {
 
             {/* Calls to Action */}
             <div
+              className="tw-hero-cta-group"
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -224,16 +225,19 @@ export const Hero: React.FC<HeroProps> = ({ onOpenEnquiry }) => {
 
               {/* Clean Lower-Third Caption Strip */}
               <div
+                className="tw-hero-caption-strip"
                 style={{
                   position: 'absolute',
                   bottom: 0,
                   left: 0,
                   right: 0,
-                  padding: '1.75rem 1.75rem 1.5rem',
-                  background: 'linear-gradient(to top, rgba(7, 10, 18, 0.88) 0%, rgba(7, 10, 18, 0.4) 65%, transparent 100%)',
+                  padding: 'clamp(1rem, 3vw, 1.75rem)',
+                  background: 'linear-gradient(to top, rgba(7, 10, 18, 0.92) 0%, rgba(7, 10, 18, 0.5) 65%, transparent 100%)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'space-between',
+                  gap: '0.75rem',
+                  flexWrap: 'wrap',
                   color: '#FFFFFF'
                 }}
               >
@@ -260,7 +264,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenEnquiry }) => {
                     alignItems: 'center',
                     gap: '0.45rem',
                     textDecoration: 'none',
-                    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.25)'
+                    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.25)',
+                    whiteSpace: 'nowrap'
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = 'scale(1.04)';
@@ -315,16 +320,30 @@ export const Hero: React.FC<HeroProps> = ({ onOpenEnquiry }) => {
         @media (max-width: 960px) {
           .tw-hero-grid {
             grid-template-columns: 1fr !important;
-            gap: 3rem !important;
+            gap: 2.5rem !important;
           }
           .tw-hero-scroll-indicator {
             display: none !important;
           }
         }
-        @media (max-width: 480px) {
+        @media (max-width: 540px) {
+          .tw-hero-cta-group a,
+          .tw-hero-cta-group button {
+            width: 100% !important;
+            justify-content: center !important;
+          }
+          .tw-hero-badges {
+            grid-template-columns: repeat(3, 1fr) !important;
+            gap: 0.5rem !important;
+          }
+          .tw-hero-badges span:first-child {
+            font-size: 1.45rem !important;
+          }
+        }
+        @media (max-width: 380px) {
           .tw-hero-badges {
             grid-template-columns: 1fr !important;
-            gap: 1rem !important;
+            gap: 0.875rem !important;
           }
         }
       `}</style>

@@ -313,7 +313,7 @@ export const TileEstimatorCalculator: React.FC<TileEstimatorProps> = ({
                 </span>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.75rem' }}>
+              <div className="tw-wastage-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.75rem' }}>
                 {[
                   { pct: 5, label: '5% Minimal', sub: 'Straight walls' },
                   { pct: 10, label: '10% Recommended', sub: 'Standard rooms' },
@@ -465,6 +465,13 @@ export const TileEstimatorCalculator: React.FC<TileEstimatorProps> = ({
         @media (max-width: 960px) {
           .tw-calc-grid {
             grid-template-columns: 1fr !important;
+            gap: 2rem !important;
+          }
+        }
+        @media (max-width: 520px) {
+          .tw-wastage-grid {
+            grid-template-columns: 1fr !important;
+            gap: 0.5rem !important;
           }
         }
         @media (max-width: 480px) {
