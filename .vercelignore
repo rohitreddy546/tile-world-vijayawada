@@ -1,0 +1,22 @@
+# Local Agent & Planning artifacts
+.agent
+.agents
+.gemini
+.gsd
+.planning
+ai-ui-ux-motion-engine
+adapters
+model_capabilities.yaml
+PROJECT_RULES.md
+GSD-STYLE.md
+VERSION
+scripts
+
+# Testing & Dev
+tests
+coverage
+
+# System & OS
+.DS_Store
+Thumbs.db
+*.local
